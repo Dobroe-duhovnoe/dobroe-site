@@ -24,6 +24,10 @@ const blockNames = {
   DONATE: 'ПОЖЕРТВОВАТЬ',
   LEGAL_INFO: 'ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ',
   PRAYER_REQUEST: 'МЫ ХОТИМ ПОМОЛИТЬСЯ ЗА ВАС',
+  HOW_GOD_TREATS_YOU: 'КАК БОГ ОТНОСИТСЯ К ТЕБЕ',
+  WHAT_WE_BELIEVE: 'ВО ЧТО МЫ ВЕРИМ',
+  LISTEN_AND_WATCH: 'СЛУШАТЬ И СМОТРЕТЬ',
+  PASTOR: 'ПАСТОР',
 };
 
 const blockUrlKeys = {
@@ -37,6 +41,10 @@ const blockUrlKeys = {
   [blockNames.DONATE]: 'donate',
   [blockNames.LEGAL_INFO]: 'legal-info',
   [blockNames.PRAYER_REQUEST]: 'prayer-request',
+  [blockNames.HOW_GOD_TREATS_YOU]: 'how-god-treats-you',
+  [blockNames.WHAT_WE_BELIEVE]: 'what-we-believe',
+  [blockNames.LISTEN_AND_WATCH]: 'listen-and-watch',
+  [blockNames.PASTOR]: 'pastor',
 };
 
 const AboutVersion = ({ isStartPage }) => (
@@ -184,6 +192,68 @@ function StartPage({ defaultContentKey = null }) {
         hideBlockInfo={hideBlockInfo}
       />
     ),
+    [blockNames.HOW_GOD_TREATS_YOU]: (
+      <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
+        <h1 className="mb-6 text-4xl font-bold text-[#023047]">
+          КАК БОГ ОТНОСИТСЯ К ТЕБЕ
+        </h1>
+        <p className="text-lg text-gray-700">
+          Здесь будет содержимое блока о том, как Бог относится к человеку
+        </p>
+        <button
+          onClick={hideBlockInfo}
+          className="mt-8 rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
+        >
+          Назад
+        </button>
+      </div>
+    ),
+    [blockNames.WHAT_WE_BELIEVE]: (
+      <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
+        <h1 className="mb-6 text-4xl font-bold text-[#023047]">
+          ВО ЧТО МЫ ВЕРИМ
+        </h1>
+        <p className="text-lg text-gray-700">
+          Здесь будет содержимое блока о том, во что мы верим
+        </p>
+        <button
+          onClick={hideBlockInfo}
+          className="mt-8 rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
+        >
+          Назад
+        </button>
+      </div>
+    ),
+    [blockNames.LISTEN_AND_WATCH]: (
+      <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
+        <h1 className="mb-6 text-4xl font-bold text-[#023047]">
+          СЛУШАТЬ И СМОТРЕТЬ
+        </h1>
+        <p className="text-lg text-gray-700">
+          Здесь будет содержимое блока для аудио и видео контента
+        </p>
+        <button
+          onClick={hideBlockInfo}
+          className="mt-8 rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
+        >
+          Назад
+        </button>
+      </div>
+    ),
+    [blockNames.PASTOR]: (
+      <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
+        <h1 className="mb-6 text-4xl font-bold text-[#023047]">ПАСТОР</h1>
+        <p className="text-lg text-gray-700">
+          Здесь будет содержимое блока о пасторе
+        </p>
+        <button
+          onClick={hideBlockInfo}
+          className="mt-8 rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
+        >
+          Назад
+        </button>
+      </div>
+    ),
   };
 
   useEffect(() => {
@@ -295,7 +365,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.PARTNERS)}
-            className="white-gray-two-layers flex-1 cursor-pointer rounded-2xl hover:opacity-90"
+            className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
               {blockNames.PARTNERS}
@@ -305,10 +375,8 @@ function StartPage({ defaultContentKey = null }) {
 
         <section className="flex h-full w-1/2 flex-col gap-7 px-3 text-white">
           {selectedBlock ? (
-            // Показываем соответствующий компонент
             blockComponents[selectedBlock]
           ) : (
-            // Обычный контент
             <>
               <Link
                 href="/"
@@ -319,7 +387,8 @@ function StartPage({ defaultContentKey = null }) {
                 }}
                 className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/about.webp')",
+                  backgroundImage:
+                    "url('./src/assets/how-god-treats-you.webp')",
                 }}
               >
                 <div className="flex items-center justify-between gap-2">
@@ -334,52 +403,58 @@ function StartPage({ defaultContentKey = null }) {
               <div
                 className={`${
                   contentKey ? 'hidden' : 'grid'
-                } flex-1 grid-cols-2 gap-4 xl:gap-7`}
+                } flex-1 grid-cols-2 gap-4 text-2xl xl:gap-7`}
               >
                 <Link
-                  href={`/${contentRoutes['intro']}`}
-                  className="flex h-full transform cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                  href={`/how-god-treats-you`}
+                  onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
+                  className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                   style={{
-                    backgroundImage: "url('./src/assets/about.webp')",
+                    backgroundImage:
+                      "url('./src/assets/how-god-treats-you.webp')",
                   }}
                 >
-                  <span className="text-center text-lg font-bold text-white drop-shadow-lg">
-                    {blockNames.ABOUT_US}
+                  <span className="text-left font-bold text-white drop-shadow-lg">
+                    КАК БОГ ОТНОСИТСЯ К ТЕБЕ
                   </span>
                 </Link>
                 <Link
-                  href={`/${contentRoutes['reviews']}`}
-                  className="flex h-full transform cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                  href={`/what-we-believe`}
+                  onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
+                  className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                   style={{
-                    backgroundImage: "url('./src/assets/reviews.webp')",
+                    backgroundImage: "url('./src/assets/what-we-believe.webp')",
                   }}
                 >
-                  <span className="text-center text-lg font-bold text-white drop-shadow-lg">
-                    {blockNames.PARTNERS}
-                  </span>
-                </Link>
-
-                <Link
-                  href={`/${contentRoutes['howItWork']}`}
-                  className="flex h-full transform cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
-                  style={{
-                    backgroundImage: "url('./src/assets/inside.webp')",
-                  }}
-                >
-                  <span className="text-center text-lg font-bold text-white drop-shadow-lg">
-                    {blockNames.HOW_TO_FIND_US}
+                  <span className="text-left font-bold text-white drop-shadow-lg">
+                    ВО ЧТО МЫ ВЕРИМ
                   </span>
                 </Link>
 
                 <Link
-                  href={`/${contentRoutes['faq']}`}
-                  className="flex h-full transform cursor-pointer items-center justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                  href={`/listen-and-watch`}
+                  onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
+                  className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                   style={{
-                    backgroundImage: "url('./src/assets/faq.webp')",
+                    backgroundImage:
+                      "url('./src/assets/listen-and-watch.webp')",
                   }}
                 >
-                  <span className="text-center text-lg font-bold text-white drop-shadow-lg">
-                    {blockNames.PARTNERS}
+                  <span className="text-left font-bold text-white drop-shadow-lg">
+                    СЛУШАТЬ И СМОТРЕТЬ
+                  </span>
+                </Link>
+
+                <Link
+                  href={`/pastor`}
+                  onClick={() => showBlockInfo(blockNames.PASTOR)}
+                  className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                  style={{
+                    backgroundImage: "url('./src/assets/pastor.webp')",
+                  }}
+                >
+                  <span className="text-left font-bold text-white drop-shadow-lg">
+                    ПАСТОР
                   </span>
                 </Link>
               </div>
@@ -447,7 +522,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.LEGAL_INFO)}
-            className="адуч-1 cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
+            className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
           >
             <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[#023047]">
               {blockNames.LEGAL_INFO}
