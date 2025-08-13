@@ -259,7 +259,7 @@ function StartPage({ defaultContentKey = null }) {
   }, []);
   return (
     <>
-      <main className="relative mx-auto hidden h-[90vh] w-full max-w-6xl overflow-hidden text-sm font-semibold md:flex lg:text-base xl:text-lg">
+      <main className="relative mx-auto hidden h-[93vh] w-full max-w-6xl text-sm font-semibold md:flex lg:text-base xl:text-lg">
         <aside className="flex h-full w-1/4 flex-col gap-4 xl:gap-7 xl:pr-3">
           <div
             onClick={() => {
@@ -295,7 +295,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.PARTNERS)}
-            className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="white-gray-two-layers flex-1 cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
               {blockNames.PARTNERS}
@@ -303,7 +303,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
         </aside>
 
-        <section className="flex h-full w-1/2 flex-col gap-7 overflow-hidden px-3 text-white">
+        <section className="flex h-full w-1/2 flex-col gap-7 px-3 text-white">
           {selectedBlock ? (
             // Показываем соответствующий компонент
             blockComponents[selectedBlock]
@@ -414,7 +414,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.ADDICTION_HELP)}
-            className="flex h-[18%] cursor-pointer justify-end rounded-2xl bg-[#FEB603] hover:opacity-90"
+            className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[#FEB603] hover:opacity-90"
           >
             <p className="w-5/6 p-5 text-right text-[#023047] lg:w-3/4">
               {blockNames.ADDICTION_HELP}
@@ -431,7 +431,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.RADIO_PLAYER)}
-            className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="blue-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5">
               {blockNames.RADIO_PLAYER}
@@ -439,7 +439,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.DONATE)}
-            className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
               {blockNames.DONATE}
@@ -447,7 +447,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.LEGAL_INFO)}
-            className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
+            className="адуч-1 cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
           >
             <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[#023047]">
               {blockNames.LEGAL_INFO}
