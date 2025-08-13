@@ -1,3 +1,4 @@
+export { default as BaseBlock } from './BaseBlock';
 export { default as AboutUsBlock } from './AboutUsBlock';
 export { default as DailyMessageBlock } from './DailyMessageBlock';
 export { default as HowToFindUsBlock } from './HowToFindUsBlock';

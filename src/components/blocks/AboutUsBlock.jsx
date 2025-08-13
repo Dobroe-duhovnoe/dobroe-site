@@ -1,43 +1,47 @@
-import React from "react";
+import React from 'react';
+import BaseBlock from './BaseBlock';
 
 const AboutUsBlock = ({ blockNames, hideBlockInfo }) => {
   return (
-    <div className="w-full h-full flex flex-col bg-white text-black rounded-2xl p-6 overflow-hidden">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-blue-800">
-          {blockNames.ABOUT_US}
-        </h2>
-        <button
-          onClick={hideBlockInfo}
-          className="text-gray-500 hover:text-gray-700 text-xl"
-        >
-          ✕
-        </button>
-      </div>
-      <div className="flex-1 overflow-y-auto">
-        <p className="text-gray-700 mb-4">
-          Мы - духовная организация, посвященная помощи людям в их духовном
-          пути.
-        </p>
-        <div className="bg-blue-50 p-4 rounded-lg mb-4">
-          <h3 className="font-semibold text-blue-800 mb-2">Наша миссия</h3>
-          <p className="text-blue-700">
-            Нести свет и надежду всем, кто ищет духовного просвещения и
-            поддержки.
+    <BaseBlock title={blockNames.ABOUT_US} onClose={hideBlockInfo}>
+      <div className="flex flex-col items-start justify-start text-left text-base text-[#023047]">
+        <p className="mb-6">Служение “ДОБРОЕ ДУХОВНОЕ”</p>
+        <div className="mb-6 flex flex-col gap-2.5">
+          <h2 className="text-xl font-bold">Кратко о нас</h2>
+          <p>
+            Мы поместная церковь с видением о том, чтобы открывать Божью любовь
+            к людям, рассказывая им о жертве Иисуса Христа. Мы верим, что можем
+            рассказать Евангелие Спасения людям не только словами, но и делами.
+            Тем самым мы придерживаемся главного видения нашей церкви: ПРОЯВИТЬ
+            ЛЮБОВЬ К БОГУ ЧЕРЕЗ ЛЮБОВЬ К ЧЕЛОВЕКУ.
+          </p>
+          <p>
+            Мы поместная церковь, но верим, что Бог призывает нас быть
+            миссионерами не только в своем городе и стране. Мы поместная церковь
+            глобальным посланием Христа идти до края земли.
+          </p>
+          <p>
+            Мы церковь, живущая в 21 веке и потому понимаем ценность медиа в
+            современном обществе. Поэтому мы развиваем это направление для
+            проповеди Евангелия.
+          </p>
+          <p>
+            Мы хотим сеять ДОБРОЕ ДУХОВНОЕ в нашем обществе и приглашаем вас
+            присоединиться к нам.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-yellow-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-yellow-800">Основано</h4>
-            <p className="text-yellow-700">2010 год</p>
-          </div>
-          <div className="bg-green-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-green-800">Локации</h4>
-            <p className="text-green-700">5 городов</p>
-          </div>
+        <div className="flex flex-col gap-2.5">
+          <h2 className="text-xl font-bold">Братство</h2>
+          <p>
+            Служение “ДОБРОЕ ДУХОВНОЕ” является частью Централизованной
+            религиозной организации Содружество церквей христиан веры
+            еван-гельской (пятидесятников).
+          </p>
+          <p>Узнать о нашем вероисповедании можно ЗДЕСЬ</p>
+          {/*TODO добавить сслыку*/}
         </div>
       </div>
-    </div>
+    </BaseBlock>
   );
 };
 
