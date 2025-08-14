@@ -437,209 +437,205 @@ function StartPage({ defaultContentKey = null }) {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
   return (
-    <>
-      <main className="relative mx-auto hidden h-[93vh] w-full max-w-7xl text-sm font-semibold md:flex lg:text-base xl:text-lg">
-        <aside className="flex h-full w-1/4 flex-col gap-4 xl:gap-7 xl:pr-3">
-          <div
-            onClick={() => {
-              hideBlockInfo();
-              window.history.pushState({}, '', '/');
-            }}
-            className="flex h-[14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
-          >
-            <img src={logo} alt="Логотип" className="w-52" />
-          </div>
+    <main className="relative mx-auto hidden h-[93vh] w-full max-w-7xl text-sm font-semibold md:flex lg:text-base xl:text-lg">
+      <aside className="flex h-full w-1/4 flex-col gap-4 xl:gap-7 xl:pr-3">
+        <div
+          onClick={() => {
+            hideBlockInfo();
+            window.history.pushState({}, '', '/');
+          }}
+          className="flex h-[14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
+        >
+          <img src={logo} alt="Логотип" className="w-52" />
+        </div>
 
-          <div
-            onClick={() => showBlockInfo(blockNames.ABOUT_US)}
-            className="h-[18%] cursor-pointer rounded-2xl bg-[#8FAED3] text-left text-[#023047] hover:opacity-80"
-          >
-            <p className="mt-4 flex rounded-2xl p-5">{blockNames.ABOUT_US}</p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.DAILY_MESSAGE)}
-            className="h-[18%] cursor-pointer rounded-2xl bg-[#FEB603] text-left text-[#023047] transition-colors hover:opacity-90"
-          >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5">
-              {blockNames.DAILY_MESSAGE}
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.HOW_TO_FIND_US)}
-            className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
-          >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5">
-              {blockNames.HOW_TO_FIND_US}
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.PARTNERS)}
-            className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
-          >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
-              {blockNames.PARTNERS}
-            </p>
-          </div>
-        </aside>
+        <div
+          onClick={() => showBlockInfo(blockNames.ABOUT_US)}
+          className="h-[18%] cursor-pointer rounded-2xl bg-[#8FAED3] text-left text-[#023047] hover:opacity-80"
+        >
+          <p className="mt-4 flex rounded-2xl p-5">{blockNames.ABOUT_US}</p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.DAILY_MESSAGE)}
+          className="h-[18%] cursor-pointer rounded-2xl bg-[#FEB603] text-left text-[#023047] transition-colors hover:opacity-90"
+        >
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+            {blockNames.DAILY_MESSAGE}
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.HOW_TO_FIND_US)}
+          className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+        >
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+            {blockNames.HOW_TO_FIND_US}
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.PARTNERS)}
+          className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+        >
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
+            {blockNames.PARTNERS}
+          </p>
+        </div>
+      </aside>
 
-        <section className="flex h-full w-1/2 flex-col gap-7 px-3 text-white">
-          {selectedBlock ? (
-            blockComponents[selectedBlock]
-          ) : (
-            <>
+      <section className="flex h-full w-1/2 flex-col gap-7 px-3 text-white">
+        {selectedBlock ? (
+          blockComponents[selectedBlock]
+        ) : (
+          <>
+            <Link
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                hideBlockInfo();
+                window.history.pushState({}, '', '/');
+              }}
+              className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
+              style={{
+                backgroundImage: "url('./src/assets/how-god-treats-you.webp')",
+              }}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <p className="w-1/3 text-left text-[#023047]">
+                  {'КОНФЕРЕНЦИЯ «МЕДИАКОМАНДА» - 2025'}
+                </p>
+                <p className="w-1/4 text-right text-[#023047]">
+                  {'10-11 октября 2025'}
+                </p>
+              </div>
+            </Link>
+            <div
+              className={`${
+                contentKey ? 'hidden' : 'grid'
+              } flex-1 grid-cols-2 gap-4 text-2xl xl:gap-7`}
+            >
               <Link
-                href="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  hideBlockInfo();
-                  window.history.pushState({}, '', '/');
-                }}
-                className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
+                href={`/how-god-treats-you`}
+                onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
+                className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage:
                     "url('./src/assets/how-god-treats-you.webp')",
                 }}
               >
-                <div className="flex items-center justify-between gap-2">
-                  <p className="w-1/3 text-left text-[#023047]">
-                    {'КОНФЕРЕНЦИЯ «МЕДИАКОМАНДА» - 2025'}
-                  </p>
-                  <p className="w-1/4 text-right text-[#023047]">
-                    {'10-11 октября 2025'}
-                  </p>
-                </div>
+                <span className="text-left font-bold text-white drop-shadow-lg">
+                  КАК БОГ ОТНОСИТСЯ К ТЕБЕ
+                </span>
               </Link>
-              <div
-                className={`${
-                  contentKey ? 'hidden' : 'grid'
-                } flex-1 grid-cols-2 gap-4 text-2xl xl:gap-7`}
+              <Link
+                href={`/what-we-believe`}
+                onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
+                className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                style={{
+                  backgroundImage: "url('./src/assets/what-we-believe.webp')",
+                }}
               >
-                <Link
-                  href={`/how-god-treats-you`}
-                  onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
-                  className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
-                  style={{
-                    backgroundImage:
-                      "url('./src/assets/how-god-treats-you.webp')",
-                  }}
-                >
-                  <span className="text-left font-bold text-white drop-shadow-lg">
-                    КАК БОГ ОТНОСИТСЯ К ТЕБЕ
-                  </span>
-                </Link>
-                <Link
-                  href={`/what-we-believe`}
-                  onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
-                  className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
-                  style={{
-                    backgroundImage: "url('./src/assets/what-we-believe.webp')",
-                  }}
-                >
-                  <span className="text-left font-bold text-white drop-shadow-lg">
-                    ВО ЧТО МЫ ВЕРИМ
-                  </span>
-                </Link>
+                <span className="text-left font-bold text-white drop-shadow-lg">
+                  ВО ЧТО МЫ ВЕРИМ
+                </span>
+              </Link>
 
-                <Link
-                  href={`/listen-and-watch`}
-                  onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
-                  className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
-                  style={{
-                    backgroundImage:
-                      "url('./src/assets/listen-and-watch.webp')",
-                  }}
-                >
-                  <span className="text-left font-bold text-white drop-shadow-lg">
-                    СЛУШАТЬ И СМОТРЕТЬ
-                  </span>
-                </Link>
+              <Link
+                href={`/listen-and-watch`}
+                onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
+                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                style={{
+                  backgroundImage: "url('./src/assets/listen-and-watch.webp')",
+                }}
+              >
+                <span className="text-left font-bold text-white drop-shadow-lg">
+                  СЛУШАТЬ И СМОТРЕТЬ
+                </span>
+              </Link>
 
-                <Link
-                  href={`/pastor`}
-                  onClick={() => showBlockInfo(blockNames.PASTOR)}
-                  className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
-                  style={{
-                    backgroundImage: "url('./src/assets/pastor.webp')",
-                  }}
-                >
-                  <span className="text-left font-bold text-white drop-shadow-lg">
-                    ПАСТОР
-                  </span>
-                </Link>
-              </div>
-            </>
-          )}
-          <div
-            className={`relative p-10 text-3xl ${
-              contentKey ? 'flex' : 'hidden'
-            } h-full w-full overflow-hidden rounded-2xl bg-white text-black`}
-          >
-            {contentObjects[contentKey]}
-            <Close
-              className="absolute top-10 right-9 h-6 w-6 cursor-pointer stroke-black"
-              onClick={() => {
-                setContentKey(null);
-                if (defaultContentKey) {
-                  router.replace('/', undefined, { shallow: true });
-                }
-              }}
-            />
-          </div>
-        </section>
+              <Link
+                href={`/pastor`}
+                onClick={() => showBlockInfo(blockNames.PASTOR)}
+                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                style={{
+                  backgroundImage: "url('./src/assets/pastor.webp')",
+                }}
+              >
+                <span className="text-left font-bold text-white drop-shadow-lg">
+                  ПАСТОР
+                </span>
+              </Link>
+            </div>
+          </>
+        )}
+        <div
+          className={`relative p-10 text-3xl ${
+            contentKey ? 'flex' : 'hidden'
+          } h-full w-full overflow-hidden rounded-2xl bg-white text-black`}
+        >
+          {contentObjects[contentKey]}
+          <Close
+            className="absolute top-10 right-9 h-6 w-6 cursor-pointer stroke-black"
+            onClick={() => {
+              setContentKey(null);
+              if (defaultContentKey) {
+                router.replace('/', undefined, { shallow: true });
+              }
+            }}
+          />
+        </div>
+      </section>
 
-        <aside className="flex w-1/4 flex-col gap-4 xl:gap-7 xl:pl-3">
-          <div
-            onClick={() => showBlockInfo(blockNames.PRAYER_REQUEST)}
-            className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[#8FAED3] hover:opacity-90"
-          >
-            <p className="w-3/4 p-5 text-right text-[#023047] lg:w-2/3">
-              {blockNames.PRAYER_REQUEST}
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.ADDICTION_HELP)}
-            className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[#FEB603] hover:opacity-90"
-          >
-            <p className="w-5/6 p-5 text-right text-[#023047] lg:w-3/4">
-              {blockNames.ADDICTION_HELP}
-            </p>
-          </div>
+      <aside className="flex w-1/4 flex-col gap-4 xl:gap-7 xl:pl-3">
+        <div
+          onClick={() => showBlockInfo(blockNames.PRAYER_REQUEST)}
+          className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[#8FAED3] hover:opacity-90"
+        >
+          <p className="w-3/4 p-5 text-right text-[#023047] lg:w-2/3">
+            {blockNames.PRAYER_REQUEST}
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.ADDICTION_HELP)}
+          className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[#FEB603] hover:opacity-90"
+        >
+          <p className="w-5/6 p-5 text-right text-[#023047] lg:w-3/4">
+            {blockNames.ADDICTION_HELP}
+          </p>
+        </div>
 
-          <div
-            onClick={() => showBlockInfo(blockNames.SOCIAL_MEDIA)}
-            className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
-          >
-            <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 font-semibold text-[#023047]">
-              YouTube | Telegram | VK
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.RADIO_PLAYER)}
-            className="blue-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
-          >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5">
-              {blockNames.RADIO_PLAYER}
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.DONATE)}
-            className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
-          >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
-              {blockNames.DONATE}
-            </p>
-          </div>
-          <div
-            onClick={() => showBlockInfo(blockNames.LEGAL_INFO)}
-            className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
-          >
-            <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[#023047]">
-              {blockNames.LEGAL_INFO}
-            </p>
-          </div>
-        </aside>
-      </main>
-    </>
+        <div
+          onClick={() => showBlockInfo(blockNames.SOCIAL_MEDIA)}
+          className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
+        >
+          <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 font-semibold text-[#023047]">
+            YouTube | Telegram | VK
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.RADIO_PLAYER)}
+          className="blue-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+        >
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+            {blockNames.RADIO_PLAYER}
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.DONATE)}
+          className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+        >
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
+            {blockNames.DONATE}
+          </p>
+        </div>
+        <div
+          onClick={() => showBlockInfo(blockNames.LEGAL_INFO)}
+          className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
+        >
+          <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[#023047]">
+            {blockNames.LEGAL_INFO}
+          </p>
+        </div>
+      </aside>
+    </main>
   );
 }
 
