@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: block;
+  place-items: initial;
+  min-height: 100vh;
+}
+
+.blue-two-layers {
+  background: linear-gradient(
+    140deg,
+    #023047 0%,
+    #023047 50%,
+    #06405d 50%,
+    #06405d 60%,
+    #1a4a62 60%,
+    #1a4a62 100%
+  );
+}
+
+.white-gray-two-layers {
+  background: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #ffffff 50%,
+    #e3e3e3 50%,
+    #e3e3e3 60%,
+    #aeaeae 60%,
+    #aeaeae 100%
+  );
+}
+
+.gray-two-layers {
+  position: relative;
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.gray-two-layers::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4b5563, #374151);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.gray-two-layers:hover::after {
+  opacity: 1;
+}
+
+/* Базовые стили */
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(237, 237, 237, 1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Убираем центрирование для полноэкранной страницы */
+body {
+  display: block;
+  place-items: initial;
+  min-height: 100vh;
+}
+
+/* Стили для ссылок */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* Стили для кнопок */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Медиа-запросы для светлой темы */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
