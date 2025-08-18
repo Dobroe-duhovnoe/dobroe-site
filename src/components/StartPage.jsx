@@ -438,7 +438,7 @@ function StartPage({ defaultContentKey = null }) {
   }, []);
   return (
     <main className="relative mx-auto hidden h-[93vh] w-full max-w-7xl text-sm font-semibold md:flex lg:text-base xl:text-lg">
-      <aside className="flex h-full w-1/4 flex-col gap-4 xl:gap-7 xl:pr-3">
+      <aside className="flex h-full w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pr-3">
         <div
           onClick={() => {
             hideBlockInfo();
@@ -481,7 +481,7 @@ function StartPage({ defaultContentKey = null }) {
         </div>
       </aside>
 
-      <section className="flex h-full w-1/2 flex-col gap-7 px-3 text-white">
+      <section className="flex h-full w-1/2 flex-col gap-7 px-3 leading-tight text-white">
         {selectedBlock ? (
           blockComponents[selectedBlock]
         ) : (
@@ -510,30 +510,30 @@ function StartPage({ defaultContentKey = null }) {
             <div
               className={`${
                 contentKey ? 'hidden' : 'grid'
-              } flex-1 grid-cols-2 gap-4 text-2xl xl:gap-7`}
+              } flex-1 grid-cols-2 gap-4 text-2xl leading-tight xl:gap-7`}
             >
               <Link
                 href={`/how-god-treats-you`}
                 onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
-                className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage:
                     "url('./src/assets/how-god-treats-you.webp')",
                 }}
               >
-                <span className="text-left font-bold text-white drop-shadow-lg">
+                <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   КАК БОГ ОТНОСИТСЯ К ТЕБЕ
                 </span>
               </Link>
               <Link
                 href={`/what-we-believe`}
                 onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
-                className="flex h-full transform cursor-pointer justify-center rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage: "url('./src/assets/what-we-believe.webp')",
                 }}
               >
-                <span className="text-left font-bold text-white drop-shadow-lg">
+                <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   ВО ЧТО МЫ ВЕРИМ
                 </span>
               </Link>
@@ -546,7 +546,7 @@ function StartPage({ defaultContentKey = null }) {
                   backgroundImage: "url('./src/assets/listen-and-watch.webp')",
                 }}
               >
-                <span className="text-left font-bold text-white drop-shadow-lg">
+                <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   СЛУШАТЬ И СМОТРЕТЬ
                 </span>
               </Link>
@@ -559,7 +559,7 @@ function StartPage({ defaultContentKey = null }) {
                   backgroundImage: "url('./src/assets/pastor.webp')",
                 }}
               >
-                <span className="text-left font-bold text-white drop-shadow-lg">
+                <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   ПАСТОР
                 </span>
               </Link>
@@ -584,7 +584,7 @@ function StartPage({ defaultContentKey = null }) {
         </div>
       </section>
 
-      <aside className="flex w-1/4 flex-col gap-4 xl:gap-7 xl:pl-3">
+      <aside className="flex w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pl-3">
         <div
           onClick={() => showBlockInfo(blockNames.PRAYER_REQUEST)}
           className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[#8FAED3] hover:opacity-90"
