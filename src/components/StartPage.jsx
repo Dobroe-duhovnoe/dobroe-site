@@ -11,6 +11,10 @@ import {
   DonateBlock,
   LegalInfoBlock,
   PrayerRequestBlock,
+  ListenAndWatchBlock,
+  HowGodTreatsYouBlock,
+  WhatWeBelieveBlock,
+  PastorBlock,
 } from './blocks';
 
 const blockNames = {
@@ -193,175 +197,25 @@ function StartPage({ defaultContentKey = null }) {
       />
     ),
     [blockNames.HOW_GOD_TREATS_YOU]: (
-      <div className="flex h-full w-full flex-col overflow-y-auto p-8 text-left">
-        <h1 className="mb-4 text-4xl font-bold text-[#023047]">
-          КАК БОГ ОТНОСИТСЯ К ТЕБЕ
-        </h1>
-        <p className="mb-6 text-xl text-[#023047]">
-          Служение "ДОБРОЕ ДУХОВНОЕ"
-        </p>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Божья любовь к тебе
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Бог относится к тебе с <strong>БЕЗУСЛОВНОЙ ЛЮБОВЬЮ</strong>. Он
-            любит тебя не за то, что ты делаешь, а за то, кто ты есть. Его
-            любовь не зависит от твоих достижений или ошибок.
-          </p>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            В Библии сказано: "Ибо так возлюбил Бог мир, что отдал Сына Своего
-            Единородного, дабы всякий верующий в Него не погиб, но имел жизнь
-            вечную" (Иоанна 3:16).
-          </p>
-        </div>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Бог видит твою ценность
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Ты <strong>ДРАГОЦЕНЕН</strong> в глазах Бога. Он создал тебя по
-            Своему образу и подобию. Бог знает каждую твою мысль, каждую слезу и
-            каждую радость. Ты не случайность - ты часть Божьего плана.
-          </p>
-        </div>
-
-        <button
-          onClick={hideBlockInfo}
-          className="mt-8 self-start rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
-        >
-          Назад
-        </button>
-      </div>
+      <HowGodTreatsYouBlock
+        blockNames={blockNames}
+        hideBlockInfo={hideBlockInfo}
+      />
     ),
     [blockNames.WHAT_WE_BELIEVE]: (
-      <div className="flex h-full w-full flex-col overflow-y-auto p-8 text-left">
-        <h1 className="mb-4 text-4xl font-bold text-[#023047]">
-          ВО ЧТО МЫ ВЕРИМ
-        </h1>
-        <p className="mb-6 text-xl text-[#023047]">
-          Служение "ДОБРОЕ ДУХОВНОЕ"
-        </p>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Основы нашей веры
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Мы верим в единого Бога, Творца неба и земли, Который явил Себя в
-            трех Лицах: Отец, Сын и Святой Дух. Мы верим, что Иисус Христос есть
-            Сын Божий, Который пришел в мир, умер за грехи наши и воскрес из
-            мертвых.
-          </p>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Мы верим в <strong>СВЯЩЕННОЕ ПИСАНИЕ</strong> как непогрешимое Слово
-            Божье, данное для наставления в праведности и научения истине.
-          </p>
-        </div>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Наша миссия
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Мы призваны нести Евангелие спасения до края земли, проповедуя
-            покаяние и прощение грехов во имя Иисуса Христа. Мы верим в{' '}
-            <strong>КРЕЩЕНИЕ СВЯТЫМ ДУХОМ</strong> и проявление духовных даров
-            для созидания Церкви.
-          </p>
-        </div>
-
-        <button
-          onClick={hideBlockInfo}
-          className="mt-8 self-start rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
-        >
-          Назад
-        </button>
-      </div>
+      <WhatWeBelieveBlock
+        blockNames={blockNames}
+        hideBlockInfo={hideBlockInfo}
+      />
     ),
     [blockNames.LISTEN_AND_WATCH]: (
-      <div className="flex h-full w-full flex-col overflow-y-auto p-8 text-left">
-        <h1 className="mb-4 text-4xl font-bold text-[#023047]">
-          СЛУШАТЬ И СМОТРЕТЬ
-        </h1>
-        <p className="mb-6 text-xl text-[#023047]">
-          Служение "ДОБРОЕ ДУХОВНОЕ"
-        </p>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Аудио контент
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Мы предлагаем <strong>ПОДКАСТЫ</strong> с проповедями, размышлениями
-            над Словом Божьим и свидетельствами верующих. Вы можете слушать их в
-            любое время, находясь в дороге или дома.
-          </p>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Наши аудио материалы помогут вам углубиться в понимание Библии и
-            укрепить вашу веру.
-          </p>
-        </div>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Видео контент
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Смотрите <strong>ПРОПОВЕДИ</strong>, библейские уроки, интервью и
-            документальные фильмы о христианской жизни. Наш видеоконтент создан
-            для того, чтобы нести Евангелие в современном формате.
-          </p>
-        </div>
-
-        <button
-          onClick={hideBlockInfo}
-          className="mt-8 self-start rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
-        >
-          Назад
-        </button>
-      </div>
+      <ListenAndWatchBlock
+        blockNames={blockNames}
+        hideBlockInfo={hideBlockInfo}
+      />
     ),
     [blockNames.PASTOR]: (
-      <div className="flex h-full w-full flex-col overflow-y-auto p-8 text-left">
-        <h1 className="mb-4 text-4xl font-bold text-[#023047]">ПАСТОР</h1>
-        <p className="mb-6 text-xl text-[#023047]">
-          Служение "ДОБРОЕ ДУХОВНОЕ"
-        </p>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">Наш пастор</h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Наш пастор призван Богом для служения в церкви "ДОБРОЕ ДУХОВНОЕ". Он
-            несет ответственность за духовное руководство общиной и проповедь
-            Слова Божьего.
-          </p>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Пастор является <strong>ДУХОВНЫМ НАСТАВНИКОМ</strong> для каждого
-            члена церкви, помогая им расти в вере и познании Бога.
-          </p>
-        </div>
-
-        <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
-            Миссия пастора
-          </h2>
-          <p className="mb-3 text-lg leading-relaxed text-gray-700">
-            Основная миссия пастора - <strong>ПАСТИ БОЖЬЕ СТАДО</strong>,
-            заботиться о душах людей и вести их к Иисусу Христу. Он молится за
-            церковь, преподает учение и служит примером христианской жизни.
-          </p>
-        </div>
-
-        <button
-          onClick={hideBlockInfo}
-          className="mt-8 self-start rounded-lg bg-[#8FAED3] px-6 py-3 text-white transition-colors hover:bg-[#7A9BC2]"
-        >
-          Назад
-        </button>
-      </div>
+      <PastorBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
   };
 
