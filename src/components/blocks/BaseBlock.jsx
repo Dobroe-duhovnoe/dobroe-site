@@ -5,8 +5,10 @@ const BaseBlock = ({ title, onClose, children, className = '' }) => {
     <div
       className={`flex h-full w-full flex-col overflow-hidden rounded-2xl bg-white p-7 text-black ${className}`}
     >
-      <div className="mb-2.5 flex items-center justify-between">
-        <h2 className="text-3xl font-bold text-[#023047]">{title}</h2>
+      <div className="mb-2.5 flex items-start justify-between">
+        <h2 className="flex-1 text-left text-[1.75rem] font-bold text-[#023047]">
+          {title}
+        </h2>
         <button
           onClick={onClose}
           className="text-xl text-gray-500 transition-colors duration-200 hover:text-gray-700"
