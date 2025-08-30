@@ -11,7 +11,7 @@ const BaseBlock = ({ title, onClose, children, className = '' }) => {
         </h2>
         <button
           onClick={onClose}
-          className="text-xl text-gray-500 transition-colors duration-200 hover:text-gray-700"
+          className="cursor-pointer text-xl text-[#023047] transition-colors duration-200 hover:opacity-90"
         >
           ✕
         </button>

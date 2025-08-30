@@ -2,9 +2,9 @@ import React from 'react';
 import BaseBlock from './BaseBlock';
 import ContactForm from '../ContactForm';
 
-const AddictionHelpBlock = ({ blockNames, hideBlockInfo }) => {
+const AddictionHelpBlock = ({ hideBlockInfo }) => {
   return (
-    <BaseBlock title={blockNames.ADDICTION_HELP} onClose={hideBlockInfo}>
+    <BaseBlock title={'СВОБОДА ОТ ЗАВИСИМОСТИ'} onClose={hideBlockInfo}>
       <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[#023047]">
         <p>
           Если вам или вашим близким необходима свобода от зависимости (нарко,

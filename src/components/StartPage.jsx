@@ -18,7 +18,7 @@ const blockNames = {
   DAILY_MESSAGE: 'ЕЖЕДНЕВНОЕ ПОСЛАНИЕ',
   HOW_TO_FIND_US: 'КАК НАС НАЙТИ',
   PARTNERS: 'ПАРТНЁРЫ',
-  ADDICTION_HELP: 'СВОБОДА ОТ ЗАВИСИМОСТИ',
+  ADDICTION_HELP: 'ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
   SOCIAL_MEDIA: 'СОЦИАЛЬНЫЕ СЕТИ',
   RADIO_PLAYER: 'РАДИОПЛЕЕР',
   DONATE: 'ПОЖЕРТВОВАТЬ',
