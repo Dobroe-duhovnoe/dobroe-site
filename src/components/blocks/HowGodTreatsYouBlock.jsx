@@ -5,12 +5,12 @@ const HowGodTreatsYouBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.HOW_GOD_TREATS_YOU} onClose={hideBlockInfo}>
       <div className="flex flex-col text-left">
-        <p className="mb-6 text-lg text-[#023047]">
+        <p className="mb-6 text-lg text-[var(--color-primary-dark)]">
           Служение "ДОБРОЕ ДУХОВНОЕ"
         </p>
 
         <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
+          <h2 className="mb-3 text-2xl font-bold text-[var(--color-primary-dark)]">
             Божья любовь к тебе
           </h2>
           <p className="mb-3 text-lg leading-relaxed text-gray-700">
@@ -26,7 +26,7 @@ const HowGodTreatsYouBlock = ({ blockNames, hideBlockInfo }) => {
         </div>
 
         <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">
+          <h2 className="mb-3 text-2xl font-bold text-[var(--color-primary-dark)]">
             Бог видит твою ценность
           </h2>
           <p className="mb-3 text-lg leading-relaxed text-gray-700">

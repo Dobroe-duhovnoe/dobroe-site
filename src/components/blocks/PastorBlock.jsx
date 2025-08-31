@@ -7,7 +7,7 @@ const pastorSections = [
     name: 'Биография',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           ВИТАЛИЙ ЮРЬЕВИЧ ПЕРЕДЕРЕЕВ
         </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
@@ -53,7 +53,9 @@ const pastorSections = [
     name: 'Образование',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Образование</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Образование
+        </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
             Пастор Виталий получил богословское образование в престижном
@@ -73,7 +75,9 @@ const pastorSections = [
     name: 'Семья',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Семья</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Семья
+        </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
             Пастор Виталий женат и воспитывает детей в христианских традициях.
@@ -92,7 +96,9 @@ const pastorSections = [
     name: 'Фото',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Фото</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Фото
+        </h2>
         <div className="space-y-3">
           <div className="rounded-lg bg-gray-100 p-8 text-center">
             <p className="text-sm text-gray-600">
@@ -112,7 +118,7 @@ const PastorBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.PASTOR} onClose={hideBlockInfo}>
       <div className="flex flex-col text-left">
-        <p className="mb-6 text-lg text-[#023047]">
+        <p className="mb-6 text-lg text-[var(--color-primary-dark)]">
           Религиозная группа "Служение ДОБРОЕ ДУХОВНОЕ"
         </p>
 
@@ -120,10 +126,10 @@ const PastorBlock = ({ blockNames, hideBlockInfo }) => {
           {pastorSections.map((section) => (
             <button
               key={section.id}
-              className={`cursor-pointer rounded-lg px-3 py-4 text-center transition-colors hover:opacity-90 text-[#023047]${
+              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[var(--color-primary-dark)] transition-colors hover:opacity-90 ${
                 selectedSection?.id === section.id
-                  ? 'bg-[#FFB700]'
-                  : 'bg-[#8FAED3]'
+                  ? 'bg-[var(--color-accent-yellow)]'
+                  : 'bg-[var(--color-primary-light)]'
               }`}
               onClick={() => setSelectedSection(section)}
             >

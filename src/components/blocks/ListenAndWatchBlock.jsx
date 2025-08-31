@@ -6,12 +6,14 @@ const ListenAndWatchBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.LISTEN_AND_WATCH} onClose={hideBlockInfo}>
       <div className="flex flex-col text-left">
-        <p className="mb-6 text-lg text-[#023047]">
+        <p className="mb-6 text-lg text-[var(--color-primary-dark)]">
           Религиозная группа "Служение ДОБРОЕ ДУХОВНОЕ"
         </p>
 
         <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">СЛУШАТЬ</h2>
+          <h2 className="mb-3 text-2xl font-bold text-[var(--color-primary-dark)]">
+            СЛУШАТЬ
+          </h2>
           <p className="mb-3 text-lg text-gray-700">
             Наши аудиопрограммы, подкасты можно слушать здесь:
           </p>
@@ -50,7 +52,9 @@ const ListenAndWatchBlock = ({ blockNames, hideBlockInfo }) => {
         </div>
 
         <div className="mb-6">
-          <h2 className="mb-3 text-2xl font-bold text-[#023047]">СМОТРЕТЬ</h2>
+          <h2 className="mb-3 text-2xl font-bold text-[var(--color-primary-dark)]">
+            СМОТРЕТЬ
+          </h2>
           <p className="mb-3 text-lg text-gray-700">
             Посмотреть наши программы, шортсы и другие ролики вы можете здесь:
           </p>

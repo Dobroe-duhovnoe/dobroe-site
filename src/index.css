@@ -1,5 +1,65 @@
 @import 'tailwindcss';
 
+/* CSS переменные для цветовой схемы */
+:root {
+  /* Основные цвета бренда */
+  --color-primary-dark: #023047; /* Темно-синий - основной цвет текста */
+  --color-primary-light: #8faed3; /* Светло-синий - неактивные кнопки */
+  --color-accent-yellow: #ffb700; /* Желтый - активные кнопки */
+  --color-accent-orange: #feb603; /* Оранжевый - альтернативный акцент */
+
+  /* Цвета для форм и кнопок */
+  --color-button-primary: #f59e0b; /* Оранжевый - основные кнопки */
+  --color-button-hover: #d97706; /* Темно-оранжевый - hover состояние */
+
+  /* Градиентные цвета */
+  --color-gradient-mid: #06405d; /* Средний синий для градиентов */
+  --color-gradient-light: #1a4a62; /* Светлый синий для градиентов */
+
+  /* Фоны и overlay */
+  --color-overlay: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
+  --color-background-light: #fff8e1; /* Светло-желтый фон */
+
+  /* Семантические цвета */
+  --color-success: #10b981; /* Зеленый для успеха */
+  --color-error: #ef4444; /* Красный для ошибок */
+  --color-warning: #f59e0b; /* Оранжевый для предупреждений */
+}
+
+/* Утилитарные классы для часто используемых цветов */
+.text-brand-dark {
+  color: var(--color-primary-dark);
+}
+.text-brand-light {
+  color: var(--color-primary-light);
+}
+.text-accent-yellow {
+  color: var(--color-accent-yellow);
+}
+.text-accent-orange {
+  color: var(--color-accent-orange);
+}
+
+.bg-brand-dark {
+  background-color: var(--color-primary-dark);
+}
+.bg-brand-light {
+  background-color: var(--color-primary-light);
+}
+.bg-accent-yellow {
+  background-color: var(--color-accent-yellow);
+}
+.bg-accent-orange {
+  background-color: var(--color-accent-orange);
+}
+.bg-button-primary {
+  background-color: var(--color-button-primary);
+}
+
+.border-brand-dark {
+  border-color: var(--color-primary-dark);
+}
+
 html {
   overflow-x: hidden;
 }
@@ -13,12 +73,12 @@ body {
 .blue-two-layers {
   background: linear-gradient(
     140deg,
-    #023047 0%,
-    #023047 50%,
-    #06405d 50%,
-    #06405d 60%,
-    #1a4a62 60%,
-    #1a4a62 100%
+    var(--color-primary-dark) 0%,
+    var(--color-primary-dark) 50%,
+    var(--color-gradient-mid) 50%,
+    var(--color-gradient-mid) 60%,
+    var(--color-gradient-light) 60%,
+    var(--color-gradient-light) 100%
   );
 }
 
@@ -119,7 +179,7 @@ a:hover {
 
 .custom-focus:focus {
   outline: none;
-  border: 1px solid #023047 !important; /* полностью заменяем бордер на синий */
+  border: 1px solid var(--color-primary-dark) !important; /* полностью заменяем бордер на синий */
 }
 
 /* Медиа-запросы для светлой темы */

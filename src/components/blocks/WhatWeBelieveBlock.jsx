@@ -7,7 +7,9 @@ const beliefSections = [
     name: 'Мы верим',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Мы верим:</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Мы верим:
+        </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
             <strong>1.</strong> В Единого благого Бога, вечно пребывающего в
@@ -52,7 +54,7 @@ const beliefSections = [
     name: 'Богослужебная практика',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           Богослужебная практика
         </h2>
         <p className="text-sm leading-relaxed text-gray-700">
@@ -67,7 +69,7 @@ const beliefSections = [
     name: 'Миссионерская деятельность',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           Миссионерская деятельность
         </h2>
         <p className="text-sm leading-relaxed text-gray-700">
@@ -82,7 +84,7 @@ const beliefSections = [
     name: 'Общество и власть',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           Общество и власть
         </h2>
         <p className="text-sm leading-relaxed text-gray-700">
@@ -97,7 +99,9 @@ const beliefSections = [
     name: 'Семья и брак',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Семья и брак</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Семья и брак
+        </h2>
         <p className="text-sm leading-relaxed text-gray-700">
           Мы верим в святость брака как союза между мужчиной и женщиной,
           установленного Богом.
@@ -110,7 +114,7 @@ const beliefSections = [
     name: 'Труд и трудовая этика',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           Труд и трудовая этика
         </h2>
         <p className="text-sm leading-relaxed text-gray-700">
@@ -125,7 +129,9 @@ const beliefSections = [
     name: 'Образование',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Образование</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Образование
+        </h2>
         <p className="text-sm leading-relaxed text-gray-700">
           Мы поддерживаем образование как важную составляющую развития личности
           и общества.
@@ -138,7 +144,9 @@ const beliefSections = [
     name: 'Здоровье',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Здоровье</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Здоровье
+        </h2>
         <p className="text-sm leading-relaxed text-gray-700">
           Мы заботимся о физическом и духовном здоровье как о даре от Бога.
         </p>
@@ -153,7 +161,7 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
   return (
     <BaseBlock title="ОСНОВЫ ВЕРОУЧЕНИЯ" onClose={hideBlockInfo}>
       <div className="flex flex-col text-left">
-        <p className="mb-6 text-lg text-[#023047]">
+        <p className="mb-6 text-lg text-[var(--color-primary-dark)]">
           Религиозной группы "Служение ДОБРОЕ ДУХОВНОЕ"
         </p>
 
@@ -161,10 +169,10 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
           {beliefSections.map((section) => (
             <button
               key={section.id}
-              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[#023047] transition-colors hover:opacity-90 ${
+              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[var(--color-primary-dark)] transition-colors hover:opacity-90 ${
                 selectedSection?.id === section.id
-                  ? 'bg-[#FFB700]'
-                  : 'bg-[#8FAED3]'
+                  ? 'bg-[var(--color-accent-yellow)]'
+                  : 'bg-[var(--color-primary-light)]'
               }`}
               onClick={() => setSelectedSection(section)}
             >
