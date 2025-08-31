@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ContactForm = () => {
+const ContactForm = ({ type = 'prayer' }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -31,11 +31,50 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setShowSuccessModal(true);
-    setFormData({ name: '', phone: '', message: '' });
+
+    const BOT_TOKEN = import.meta.env.VITE_BOT_TOKEN;
+    const CHAT_ID = import.meta.env.VITE_CHAT_ID;
+
+    console.log('BOT_TOKEN:', BOT_TOKEN);
+    console.log('CHAT_ID:', CHAT_ID);
+
+    if (!BOT_TOKEN || !CHAT_ID) {
+      console.error('Missing BOT_TOKEN or CHAT_ID');
+      alert('Ошибка конфигурации. Проверьте переменные окружения.');
+      return;
+    }
+
+    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    const data = {
+      chat_id: CHAT_ID,
+      text: `Имя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`,
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      console.log('Telegram API response:', result);
+
+      if (result.ok) {
+        setShowSuccessModal(true);
+        setFormData({ name: '', phone: '', message: '' });
+      } else {
+        console.error('Telegram API error:', result);
+        alert('Ошибка отправки сообщения: ' + result.description);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Ошибка сети при отправке сообщения');
+    }
   };
 
   return (

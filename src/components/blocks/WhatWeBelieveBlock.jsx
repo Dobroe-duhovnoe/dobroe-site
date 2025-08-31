@@ -161,10 +161,10 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
           {beliefSections.map((section) => (
             <button
               key={section.id}
-              className={`cursor-pointer rounded-lg px-3 py-4 text-center transition-colors hover:opacity-90 ${
+              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[#023047] transition-colors hover:opacity-90 ${
                 selectedSection?.id === section.id
-                  ? 'bg-[#FFB700] text-white'
-                  : 'bg-[#8FAED3] text-white'
+                  ? 'bg-[#FFB700]'
+                  : 'bg-[#8FAED3]'
               }`}
               onClick={() => setSelectedSection(section)}
             >

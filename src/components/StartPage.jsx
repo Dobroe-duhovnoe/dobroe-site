@@ -6,7 +6,6 @@ import {
   HowToFindUsBlock,
   PartnersBlock,
   AddictionHelpBlock,
-  SocialMediaBlock,
   RadioPlayerBlock,
   DonateBlock,
   LegalInfoBlock,
@@ -199,9 +198,6 @@ function StartPage({ defaultContentKey = null }) {
         blockNames={blockNames}
         hideBlockInfo={hideBlockInfo}
       />
-    ),
-    [blockNames.SOCIAL_MEDIA]: (
-      <SocialMediaBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
     [blockNames.RADIO_PLAYER]: (
       <RadioPlayerBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
@@ -474,12 +470,8 @@ function StartPage({ defaultContentKey = null }) {
           </p>
         </div>
 
-        <div
-          onClick={() => showBlockInfo(blockNames.SOCIAL_MEDIA)}
-          className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
-        >
+        <div className="h-[7%] rounded-2xl bg-[#8FAED3] hover:opacity-90">
           <div className="flex h-full w-full items-center justify-center gap-4 p-3">
-            {/* YouTube */}
             <a
               href="https://youtube.com/@dobroeduhovnoe"
               target="_blank"
@@ -492,7 +484,6 @@ function StartPage({ defaultContentKey = null }) {
               </svg>
             </a>
 
-            {/* Telegram */}
             <a
               href="https://t.me/dobroeduhovnoe"
               target="_blank"
