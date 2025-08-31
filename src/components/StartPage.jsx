@@ -136,6 +136,8 @@ function StartPage({ defaultContentKey = null }) {
   const router = useRouter();
   const [contentKey, setContentKey] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
+  const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
@@ -157,6 +159,22 @@ function StartPage({ defaultContentKey = null }) {
       // Возвращаемся к главной странице
       window.history.pushState({}, '', '/');
     }
+  };
+
+  // Функции для управления радиоплеером
+  const toggleRadioPlayer = () => {
+    setRadioPlayerVisible(!radioPlayerVisible);
+  };
+
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+    // Здесь можно добавить логику воспроизведения/паузы
+    console.log(isPlaying ? 'Pause' : 'Play');
+  };
+
+  const closeRadioPlayer = () => {
+    setRadioPlayerVisible(false);
+    setIsPlaying(false);
   };
 
   // Объект для переключения между компонентами
@@ -460,17 +478,125 @@ function StartPage({ defaultContentKey = null }) {
           onClick={() => showBlockInfo(blockNames.SOCIAL_MEDIA)}
           className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
         >
-          <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 font-semibold text-[#023047]">
-            YouTube | Telegram | VK
-          </p>
+          <div className="flex h-full w-full items-center justify-center gap-4 p-3">
+            {/* YouTube */}
+            <a
+              href="https://youtube.com/@dobroeduhovnoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <svg className="h-5 w-5 fill-white" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+
+            {/* Telegram */}
+            <a
+              href="https://t.me/dobroeduhovnoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <svg
+                width="15"
+                height="13"
+                viewBox="0 0 15 13"
+                fill="none"
+                className="fill-white"
+              >
+                <path
+                  d="M1.20231 5.71119C1.20231 5.71119 7.45231 3.1317 9.61991 2.2234C10.4509 1.86011 13.2688 0.697478 13.2688 0.697478C13.2688 0.697478 14.5694 0.188871 14.461 1.42411C14.4248 1.93277 14.1358 3.71297 13.8468 5.63854C13.4133 8.36339 12.9436 11.3425 12.9436 11.3425C12.9436 11.3425 12.8714 12.1782 12.2572 12.3235C11.6431 12.4688 10.6315 11.8149 10.4509 11.6695C10.3063 11.5606 7.74131 9.92562 6.80201 9.12633C6.54911 8.90836 6.26011 8.47241 6.83811 7.96375C8.13871 6.76481 9.69216 5.27525 10.6315 4.33064C11.065 3.89464 11.4985 2.87737 9.69216 4.11261C7.12716 5.89286 4.59826 7.5641 4.59826 7.5641C4.59826 7.5641 4.02021 7.92739 2.93641 7.60041C1.85256 7.27347 0.588112 6.83747 0.588112 6.83747C0.588112 6.83747 -0.278888 6.29251 1.20231 5.71119Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+
+            {/* VK */}
+            <a
+              href="https://vk.com/dobroeduhovnoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <svg
+                width="17"
+                height="11"
+                viewBox="0 0 17 11"
+                fill="none"
+                className="fill-white"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M8.02754 10.3029H9.00864C9.00864 10.3029 9.30499 10.2704 9.45629 10.1073C9.59556 9.95757 9.5911 9.67636 9.5911 9.67636C9.5911 9.67636 9.57194 8.35992 10.1829 8.16606C10.7852 7.9751 11.5586 9.43839 12.3784 10.001C12.9983 10.4268 13.4694 10.3335 13.4694 10.3335L15.6613 10.3029C15.6613 10.3029 16.8079 10.2323 16.2642 9.33076C16.2197 9.25701 15.9476 8.66385 14.6345 7.445C13.2601 6.16933 13.4442 6.37567 15.0998 4.16904C16.108 2.82518 16.5111 2.00474 16.3852 1.65335C16.2651 1.31867 15.5236 1.40713 15.5236 1.40713L13.0556 1.4225C13.0556 1.4225 12.8726 1.39755 12.7369 1.47866C12.6044 1.5582 12.519 1.74359 12.519 1.74359C12.519 1.74359 12.1284 2.78351 11.6074 3.6679C10.5085 5.53406 10.0691 5.63255 9.88946 5.51668C9.47167 5.24662 9.57595 4.43175 9.57595 3.85285C9.57595 2.04441 9.85024 1.29037 9.04184 1.09518C8.77356 1.03033 8.57613 0.987551 7.89006 0.980644C7.00946 0.971508 6.26411 0.983317 5.84208 1.1901C5.56132 1.32758 5.34474 1.63396 5.47665 1.65157C5.63975 1.6734 6.0092 1.75117 6.20506 2.01789C6.45797 2.36193 6.44905 3.13469 6.44905 3.13469C6.44905 3.13469 6.59434 5.26355 6.10969 5.52804C5.77702 5.70942 5.32067 5.33909 4.34091 3.64607C3.83889 2.77884 3.45986 1.82025 3.45986 1.82025C3.45986 1.82025 3.38678 1.64109 3.25643 1.54528C3.09822 1.42919 2.87718 1.3922 2.87718 1.3922L0.531953 1.40757C0.531953 1.40757 0.179891 1.41738 0.0506524 1.57046C-0.0643249 1.70661 0.0415165 1.98826 0.0415165 1.98826C0.0415165 1.98826 1.87759 6.28386 3.95654 8.4486C5.8628 10.4333 8.02754 10.3029 8.02754 10.3029Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
         <div
-          onClick={() => showBlockInfo(blockNames.RADIO_PLAYER)}
-          className="blue-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+          onClick={toggleRadioPlayer}
+          className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
         >
-          <p className="mt-4 flex h-full w-full rounded-2xl p-5">
-            {blockNames.RADIO_PLAYER}
-          </p>
+          {!radioPlayerVisible ? (
+            <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+              {blockNames.RADIO_PLAYER}
+            </p>
+          ) : (
+            <div className="relative flex h-full flex-col items-center justify-center p-3">
+              {/* Крестик закрытия */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeRadioPlayer();
+                }}
+                className="absolute top-2 right-3 text-lg font-bold text-white hover:text-gray-300"
+              >
+                ✕
+              </button>
+
+              {/* Название радиостанции */}
+              <p className="mb-2 text-center text-sm text-white">
+                Доброе Духовное Радио
+              </p>
+
+              {/* Кнопки управления */}
+              <div className="flex items-center gap-3">
+                {/* Кнопка Play/Pause */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    togglePlayPause();
+                  }}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200"
+                >
+                  {isPlaying ? (
+                    <span className="-mt-0.5 text-lg text-[#023047]">⏸</span>
+                  ) : (
+                    <span className="ml-0.5 text-lg text-[#023047]">▶</span>
+                  )}
+                </button>
+
+                {/* Индикатор громкости */}
+                <div className="flex items-center gap-1">
+                  <span className="text-xs text-white">🔊</span>
+                  <div className="h-1 w-12 rounded bg-white">
+                    <div className="h-1 w-8 rounded bg-[#FFB700]"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Статус */}
+              <p className="mt-2 text-xs text-white">
+                {isPlaying ? 'В эфире' : 'Остановлено'}
+              </p>
+            </div>
+          )}
         </div>
         <div
           onClick={() => showBlockInfo(blockNames.DONATE)}
