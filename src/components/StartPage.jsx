@@ -139,20 +139,24 @@ function StartPage({ defaultContentKey = null }) {
 
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
-    setSelectedBlock(blockType);
-    // Обновляем URL для переключения страниц
-    window.history.pushState(
-      { block: blockType },
-      '',
-      `/${blockUrlKeys[blockType]}`
-    );
+    if (selectedBlock !== blockType) {
+      setSelectedBlock(blockType);
+      // Обновляем URL для переключения страниц
+      window.history.pushState(
+        { block: blockType },
+        '',
+        `/${blockUrlKeys[blockType]}`
+      );
+    }
   };
 
   // Функция для скрытия информационного блока
   const hideBlockInfo = () => {
-    setSelectedBlock(null);
-    // Возвращаемся к главной странице
-    window.history.pushState({}, '', '/');
+    if (selectedBlock !== null) {
+      setSelectedBlock(null);
+      // Возвращаемся к главной странице
+      window.history.pushState({}, '', '/');
+    }
   };
 
   // Объект для переключения между компонентами
@@ -362,14 +366,13 @@ function StartPage({ defaultContentKey = null }) {
               </div>
             </Link>
             <div
-              className={`${
-                contentKey ? 'hidden' : 'grid'
-              } flex-1 grid-cols-2 gap-4 text-2xl leading-tight xl:gap-7`}
+              className={`grid flex-1 grid-cols-2 gap-4 text-2xl leading-tight transition-opacity duration-300 xl:gap-7 ${
+                contentKey ? 'pointer-events-none opacity-0' : 'opacity-100'
+              }`}
             >
-              <Link
-                href={`/how-god-treats-you`}
+              <div
                 onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
-                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage:
                     "url('./src/assets/how-god-treats-you.webp')",
@@ -378,11 +381,10 @@ function StartPage({ defaultContentKey = null }) {
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   КАК БОГ ОТНОСИТСЯ К ТЕБЕ
                 </span>
-              </Link>
-              <Link
-                href={`/what-we-believe`}
+              </div>
+              <div
                 onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
-                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage: "url('./src/assets/what-we-believe.webp')",
                 }}
@@ -390,12 +392,11 @@ function StartPage({ defaultContentKey = null }) {
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   ВО ЧТО МЫ ВЕРИМ
                 </span>
-              </Link>
+              </div>
 
-              <Link
-                href={`/listen-and-watch`}
+              <div
                 onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
-                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage: "url('./src/assets/listen-and-watch.webp')",
                 }}
@@ -403,12 +404,11 @@ function StartPage({ defaultContentKey = null }) {
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   СЛУШАТЬ И СМОТРЕТЬ
                 </span>
-              </Link>
+              </div>
 
-              <Link
-                href={`/pastor`}
+              <div
                 onClick={() => showBlockInfo(blockNames.PASTOR)}
-                className="flex h-full transform cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 lg:p-7"
+                className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
                   backgroundImage: "url('./src/assets/pastor.webp')",
                 }}
@@ -416,7 +416,7 @@ function StartPage({ defaultContentKey = null }) {
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
                   ПАСТОР
                 </span>
-              </Link>
+              </div>
             </div>
           </>
         )}

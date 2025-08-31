@@ -13,30 +13,30 @@ const beliefSections = [
             <strong>1.</strong> В Единого благого Бога, вечно пребывающего в
             трех Лицах (ипостасях), а именно: Отца, Сына и Святого Духа.
           </p>
-          
+
           <p>
             <strong>2.</strong> В Иисуса Христа, Единородного Сына Божьего,
             зачатого от Духа Святого и рожденного от Девы Марии, что Он истинный
             Бог был распят за грехи всех людей, погребен и воскрес из мертвых.
             Что Он вознесся на небо и находится одесную Отца.
           </p>
-          
+
           <p>
             <strong>3.</strong> Мы верим, что человек сотворен по образу Божьему
             как венец и цель всего творения. Но из-за грехопадения человек
             утратил отношения с Богом, а потому каждый человек нуждается в
             покаянии пред Богом для прощения грехов.
           </p>
-          
+
           <p>
             <strong>4.</strong> Мы верим, что по вере в жертвенную смерть и
             воскресение Иисуса Христа каждый человек получает прощение грехов и
             вечную жизнь, рождается заново (свыше), становится дитем Божьим и
             получает дар Святого Духа.
           </p>
-          
+
           <p>......</p>
-          
+
           <p>
             <strong>12.</strong> Мы ожидаем Второго Пришествия Господа Иисуса
             Христа во славе, воскресения мертвых и Последнего Суда. Мы верим,
@@ -147,9 +147,9 @@ const beliefSections = [
   },
 ];
 
-const WhatWeBelieveBlock = ({ blockNames, hideBlockInfo }) => {
+const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
   const [selectedSection, setSelectedSection] = useState(beliefSections[0]);
-  
+
   return (
     <BaseBlock title="ОСНОВЫ ВЕРОУЧЕНИЯ" onClose={hideBlockInfo}>
       <div className="flex flex-col text-left">
@@ -162,8 +162,8 @@ const WhatWeBelieveBlock = ({ blockNames, hideBlockInfo }) => {
             <button
               key={section.id}
               className={`cursor-pointer rounded-lg px-3 py-4 text-center transition-colors hover:opacity-90 ${
-                selectedSection?.id === section.id 
-                  ? 'bg-[#FFB700] text-white' 
+                selectedSection?.id === section.id
+                  ? 'bg-[#FFB700] text-white'
                   : 'bg-[#8FAED3] text-white'
               }`}
               onClick={() => setSelectedSection(section)}
@@ -173,9 +173,7 @@ const WhatWeBelieveBlock = ({ blockNames, hideBlockInfo }) => {
           ))}
         </div>
 
-        <div className="flex-1 overflow-y-auto">
-          {selectedSection?.content}
-        </div>
+        <div className="flex-1 overflow-y-auto">{selectedSection?.content}</div>
       </div>
     </BaseBlock>
   );
