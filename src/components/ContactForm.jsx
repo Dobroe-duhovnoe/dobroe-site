@@ -34,21 +34,9 @@ const ContactForm = ({ type = 'prayer' }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const BOT_TOKEN = import.meta.env.VITE_BOT_TOKEN;
-    const CHAT_ID = import.meta.env.VITE_CHAT_ID;
-
-    console.log('BOT_TOKEN:', BOT_TOKEN);
-    console.log('CHAT_ID:', CHAT_ID);
-
-    if (!BOT_TOKEN || !CHAT_ID) {
-      console.error('Missing BOT_TOKEN or CHAT_ID');
-      alert('Ошибка конфигурации. Проверьте переменные окружения.');
-      return;
-    }
-
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    const url = '/.netlify/functions/sendToTelegram';
     const data = {
-      chat_id: CHAT_ID,
+      type,
       text: `Имя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`,
     };
 
@@ -62,18 +50,15 @@ const ContactForm = ({ type = 'prayer' }) => {
       });
 
       const result = await response.json();
-      console.log('Telegram API response:', result);
-
-      if (result.ok) {
+      if (result.success) {
         setShowSuccessModal(true);
         setFormData({ name: '', phone: '', message: '' });
+        console.log('Сообщение отправлено');
       } else {
         console.error('Telegram API error:', result);
-        alert('Ошибка отправки сообщения: ' + result.description);
       }
     } catch (error) {
       console.error('Network error:', error);
-      alert('Ошибка сети при отправке сообщения');
     }
   };
 

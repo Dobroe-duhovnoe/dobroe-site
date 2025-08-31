@@ -13,7 +13,7 @@ const PrayerRequestBlock = ({ blockNames, hideBlockInfo }) => {
         <p>или напишите нам через форму обратной связи ниже</p>
       </div>
 
-      <ContactForm />
+      <ContactForm type="prayer" />
     </BaseBlock>
   );
 };
