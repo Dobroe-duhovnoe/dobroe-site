@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const ContactForm = () => {
+const ContactForm = ({ type = 'prayer' }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -31,11 +31,35 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setShowSuccessModal(true);
-    setFormData({ name: '', phone: '', message: '' });
+
+    const url = '/.netlify/functions/sendToTelegram';
+    const data = {
+      type,
+      text: `Имя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`,
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setShowSuccessModal(true);
+        setFormData({ name: '', phone: '', message: '' });
+        console.log('Сообщение отправлено');
+      } else {
+        console.error('Telegram API error:', result);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
   };
 
   return (

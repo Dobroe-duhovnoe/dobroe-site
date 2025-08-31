@@ -4,7 +4,6 @@ export { default as DailyMessageBlock } from './DailyMessageBlock';
 export { default as HowToFindUsBlock } from './HowToFindUsBlock';
 export { default as PartnersBlock } from './PartnersBlock';
 export { default as AddictionHelpBlock } from './AddictionHelpBlock';
-export { default as SocialMediaBlock } from './SocialMediaBlock';
 export { default as RadioPlayerBlock } from './RadioPlayerBlock';
 export { default as DonateBlock } from './DonateBlock';
 export { default as LegalInfoBlock } from './LegalInfoBlock';

@@ -13,7 +13,7 @@ const AddictionHelpBlock = ({ hideBlockInfo }) => {
         <p>или напишите нам через форму обратной связи ниже</p>
       </div>
 
-      <ContactForm />
+      <ContactForm type="dependents" />
     </BaseBlock>
   );
 };
