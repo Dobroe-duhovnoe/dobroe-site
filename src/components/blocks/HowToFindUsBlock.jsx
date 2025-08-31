@@ -5,7 +5,7 @@ import mapImage from '../../assets/map.png';
 const HowToFindUsBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.HOW_TO_FIND_US} onClose={hideBlockInfo}>
-      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[#023047]">
+      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[var(--color-primary-dark)]">
         <p className="font-bold">
           Каждую субботу в 14:00 проходят богослужения по адресу:
         </p>
@@ -20,7 +20,7 @@ const HowToFindUsBlock = ({ blockNames, hideBlockInfo }) => {
           className="w-full rounded-lg"
         />
       </div>
-      <div className="flex flex-col gap-2.5 text-left text-base text-[#023047]">
+      <div className="flex flex-col gap-2.5 text-left text-base text-[var(--color-primary-dark)]">
         <p className="font-bold">По любым вопросам вы можете позвонить:</p>
         <p>+7 928 288 28 28</p>
       </div>

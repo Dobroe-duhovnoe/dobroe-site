@@ -5,12 +5,14 @@ import ContactForm from '../ContactForm';
 const PrayerRequestBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.PRAYER_REQUEST} onClose={hideBlockInfo}>
-      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[#023047]">
+      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[var(--color-primary-dark)]">
         <p>
-          Если вам или вашим близким необходима свобода от зависимости (нарко,
-          алко, игровой и т.д.) позвоните по телефону: +7 928 616 58 28
+          Как Церковь, верящая в Бога-Отца, Который отвечает на молитвы своих
+          святых, мы хотим молиться за вашу ситуацию, за ваши нужды.
         </p>
-        <p>или напишите нам через форму обратной связи ниже</p>
+        <p>
+          Заполните форму ниже и мы получив ваше сообщение будем молиться о вас.
+        </p>
       </div>
 
       <ContactForm type="prayer" />

@@ -6,12 +6,12 @@ const BaseBlock = ({ title, onClose, children, className = '' }) => {
       className={`flex h-full w-full flex-col overflow-hidden rounded-2xl bg-white p-7 text-black ${className}`}
     >
       <div className="mb-2.5 flex items-start justify-between">
-        <h2 className="flex-1 text-left text-[1.75rem] font-bold text-[#023047]">
+        <h2 className="flex-1 text-left text-[1.75rem] font-bold text-[var(--color-primary-dark)]">
           {title}
         </h2>
         <button
           onClick={onClose}
-          className="cursor-pointer text-xl text-[#023047] transition-colors duration-200 hover:opacity-90"
+          className="cursor-pointer text-xl text-[var(--color-primary-dark)] transition-colors duration-200 hover:opacity-90"
         >
           ✕
         </button>

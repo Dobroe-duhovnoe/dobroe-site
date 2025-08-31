@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import howGodTreatsYouImg from '../assets/how-god-treats-you.webp';
+import whatWeBelieveImg from '../assets/what-we-believe.webp';
+import listenAndWatchImg from '../assets/listen-and-watch.webp';
+import pastorImg from '../assets/pastor.webp';
 import {
   AboutUsBlock,
   DailyMessageBlock,
@@ -323,13 +327,13 @@ function StartPage({ defaultContentKey = null }) {
 
         <div
           onClick={() => showBlockInfo(blockNames.ABOUT_US)}
-          className="h-[18%] cursor-pointer rounded-2xl bg-[#8FAED3] text-left text-[#023047] hover:opacity-80"
+          className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] text-left text-[var(--color-primary-dark)] hover:opacity-80"
         >
           <p className="mt-4 flex rounded-2xl p-5">{blockNames.ABOUT_US}</p>
         </div>
         <div
           onClick={() => showBlockInfo(blockNames.DAILY_MESSAGE)}
-          className="h-[18%] cursor-pointer rounded-2xl bg-[#FEB603] text-left text-[#023047] transition-colors hover:opacity-90"
+          className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] text-left text-[var(--color-primary-dark)] transition-colors hover:opacity-90"
         >
           <p className="mt-4 flex h-full w-full rounded-2xl p-5">
             {blockNames.DAILY_MESSAGE}
@@ -339,7 +343,7 @@ function StartPage({ defaultContentKey = null }) {
           onClick={() => showBlockInfo(blockNames.HOW_TO_FIND_US)}
           className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
         >
-          <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
             {blockNames.HOW_TO_FIND_US}
           </p>
         </div>
@@ -347,7 +351,7 @@ function StartPage({ defaultContentKey = null }) {
           onClick={() => showBlockInfo(blockNames.PARTNERS)}
           className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
         >
-          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
             {blockNames.PARTNERS}
           </p>
         </div>
@@ -367,14 +371,14 @@ function StartPage({ defaultContentKey = null }) {
               }}
               className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
               style={{
-                backgroundImage: "url('./src/assets/how-god-treats-you.webp')",
+                backgroundImage: `url(${howGodTreatsYouImg})`,
               }}
             >
               <div className="flex items-center justify-between gap-2">
-                <p className="w-1/3 text-left text-[#023047]">
+                <p className="w-1/3 text-left text-[var(--color-primary-dark)]">
                   {'КОНФЕРЕНЦИЯ «МЕДИАКОМАНДА» - 2025'}
                 </p>
-                <p className="w-1/4 text-right text-[#023047]">
+                <p className="w-1/4 text-right text-[var(--color-primary-dark)]">
                   {'10-11 октября 2025'}
                 </p>
               </div>
@@ -388,8 +392,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage:
-                    "url('./src/assets/how-god-treats-you.webp')",
+                  backgroundImage: `url(${howGodTreatsYouImg})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -400,7 +403,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/what-we-believe.webp')",
+                  backgroundImage: `url(${whatWeBelieveImg})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -412,7 +415,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/listen-and-watch.webp')",
+                  backgroundImage: `url(${listenAndWatchImg})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -424,7 +427,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.PASTOR)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/pastor.webp')",
+                  backgroundImage: `url(${pastorImg})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -455,28 +458,28 @@ function StartPage({ defaultContentKey = null }) {
       <aside className="flex w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pl-3">
         <div
           onClick={() => showBlockInfo(blockNames.PRAYER_REQUEST)}
-          className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[#8FAED3] hover:opacity-90"
+          className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
         >
-          <p className="w-3/4 p-5 text-right text-[#023047] lg:w-2/3">
+          <p className="w-3/4 p-5 text-right text-[var(--color-primary-dark)] lg:w-2/3">
             {blockNames.PRAYER_REQUEST}
           </p>
         </div>
         <div
           onClick={() => showBlockInfo(blockNames.ADDICTION_HELP)}
-          className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[#FEB603] hover:opacity-90"
+          className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
         >
-          <p className="w-5/6 p-5 text-right text-[#023047] lg:w-3/4">
+          <p className="w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
             {blockNames.ADDICTION_HELP}
           </p>
         </div>
 
-        <div className="h-[7%] rounded-2xl bg-[#8FAED3] hover:opacity-90">
+        <div className="h-[7%] rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90">
           <div className="flex h-full w-full items-center justify-center gap-4 p-3">
             <a
               href="https://youtube.com/@dobroeduhovnoe"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary-dark)] transition-opacity hover:opacity-90"
               onClick={(e) => e.stopPropagation()}
             >
               <svg className="h-5 w-5 fill-white" viewBox="0 0 24 24">
@@ -488,7 +491,7 @@ function StartPage({ defaultContentKey = null }) {
               href="https://t.me/dobroeduhovnoe"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary-dark)] transition-opacity hover:opacity-90"
               onClick={(e) => e.stopPropagation()}
             >
               <svg
@@ -510,7 +513,7 @@ function StartPage({ defaultContentKey = null }) {
               href="https://vk.com/dobroeduhovnoe"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#023047] transition-opacity hover:opacity-90"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary-dark)] transition-opacity hover:opacity-90"
               onClick={(e) => e.stopPropagation()}
             >
               <svg
@@ -535,7 +538,7 @@ function StartPage({ defaultContentKey = null }) {
           className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
         >
           {!radioPlayerVisible ? (
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5">
+            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
               {blockNames.RADIO_PLAYER}
             </p>
           ) : (
@@ -546,7 +549,7 @@ function StartPage({ defaultContentKey = null }) {
                   e.stopPropagation();
                   closeRadioPlayer();
                 }}
-                className="absolute top-2 right-3 text-lg font-bold text-white hover:text-gray-300"
+                className="absolute top-2 right-3 cursor-pointer text-lg font-bold text-white hover:text-gray-300"
               >
                 ✕
               </button>
@@ -564,12 +567,16 @@ function StartPage({ defaultContentKey = null }) {
                     e.stopPropagation();
                     togglePlayPause();
                   }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200"
                 >
                   {isPlaying ? (
-                    <span className="-mt-0.5 text-lg text-[#023047]">⏸</span>
+                    <span className="-mt-0.5 text-lg text-[var(--color-primary-dark)]">
+                      ⏸
+                    </span>
                   ) : (
-                    <span className="ml-0.5 text-lg text-[#023047]">▶</span>
+                    <span className="ml-0.5 text-lg text-[var(--color-primary-dark)]">
+                      ▶
+                    </span>
                   )}
                 </button>
 
@@ -577,7 +584,7 @@ function StartPage({ defaultContentKey = null }) {
                 <div className="flex items-center gap-1">
                   <span className="text-xs text-white">🔊</span>
                   <div className="h-1 w-12 rounded bg-white">
-                    <div className="h-1 w-8 rounded bg-[#FFB700]"></div>
+                    <div className="h-1 w-8 rounded bg-[var(--color-accent-yellow)]"></div>
                   </div>
                 </div>
               </div>
@@ -593,15 +600,15 @@ function StartPage({ defaultContentKey = null }) {
           onClick={() => showBlockInfo(blockNames.DONATE)}
           className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
         >
-          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[#023047]">
+          <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
             {blockNames.DONATE}
           </p>
         </div>
         <div
           onClick={() => showBlockInfo(blockNames.LEGAL_INFO)}
-          className="h-[7%] cursor-pointer rounded-2xl bg-[#8FAED3] hover:opacity-90"
+          className="h-[7%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
         >
-          <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[#023047]">
+          <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
             {blockNames.LEGAL_INFO}
           </p>
         </div>
