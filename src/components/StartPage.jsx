@@ -179,7 +179,11 @@ function StartPage({ defaultContentKey = null }) {
   // Объект для переключения между компонентами
   const blockComponents = {
     [blockNames.ABOUT_US]: (
-      <AboutUsBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+      <AboutUsBlock
+        blockNames={blockNames}
+        hideBlockInfo={hideBlockInfo}
+        showBlockInfo={showBlockInfo}
+      />
     ),
     [blockNames.DAILY_MESSAGE]: (
       <DailyMessageBlock
@@ -188,7 +192,11 @@ function StartPage({ defaultContentKey = null }) {
       />
     ),
     [blockNames.HOW_TO_FIND_US]: (
-      <HowToFindUsBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+      <HowToFindUsBlock
+        key={`how-to-find-us-${Date.now()}`}
+        blockNames={blockNames}
+        hideBlockInfo={hideBlockInfo}
+      />
     ),
     [blockNames.PARTNERS]: (
       <PartnersBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
@@ -362,21 +370,19 @@ function StartPage({ defaultContentKey = null }) {
               href="/"
               onClick={(e) => {
                 e.preventDefault();
-                hideBlockInfo();
-                window.history.pushState({}, '', '/');
+                showBlockInfo(blockNames.HOW_TO_FIND_US);
               }}
               className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
               style={{
-                backgroundImage: "url('./src/assets/how-god-treats-you.webp')",
+                backgroundImage: "url('./src/assets/main-banner.png')",
               }}
             >
-              <div className="flex items-center justify-between gap-2">
-                <p className="w-1/3 text-left text-[#023047]">
-                  {'КОНФЕРЕНЦИЯ «МЕДИАКОМАНДА» - 2025'}
-                </p>
-                <p className="w-1/4 text-right text-[#023047]">
-                  {'10-11 октября 2025'}
-                </p>
+              <div className="flex w-full items-center justify-center">
+                <div className="rounded-md bg-white/80 px-8 py-3 text-center shadow-md transition-all hover:bg-white/90 hover:shadow-lg">
+                  <span className="text-base font-bold text-[#023047]">
+                    ПРИХОДИТЕ НА ВОСКРЕСНОЕ БОГОСЛУЖЕНИЕ!
+                  </span>
+                </div>
               </div>
             </Link>
             <div
@@ -388,8 +394,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage:
-                    "url('./src/assets/how-god-treats-you.webp')",
+                  backgroundImage: "url('./src/assets/how-god-treats-you.png')",
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -400,7 +405,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/what-we-believe.webp')",
+                  backgroundImage: "url('./src/assets/what-we-believe.png')",
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -412,7 +417,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/listen-and-watch.webp')",
+                  backgroundImage: "url('./src/assets/listen-and-watch.png')",
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -424,7 +429,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.PASTOR)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/pastor.webp')",
+                  backgroundImage: "url('./src/assets/pastor.png')",
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">

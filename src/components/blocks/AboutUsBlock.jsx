@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseBlock from './BaseBlock';
 
-const AboutUsBlock = ({ blockNames, hideBlockInfo }) => {
+const AboutUsBlock = ({ blockNames, hideBlockInfo, showBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.ABOUT_US} onClose={hideBlockInfo}>
       <div className="flex flex-col items-start justify-start text-left text-base text-[#023047]">
@@ -37,8 +37,15 @@ const AboutUsBlock = ({ blockNames, hideBlockInfo }) => {
             религиозной организации Содружество церквей христиан веры
             еван-гельской (пятидесятников).
           </p>
-          <p>Узнать о нашем вероисповедании можно ЗДЕСЬ</p>
-          {/*TODO добавить сслыку*/}
+          <p>
+            Узнать о нашем вероисповедании можно{' '}
+            <button
+              onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
+              className="cursor-pointer font-semibold text-[#FFB700] underline hover:text-[#e6a500]"
+            >
+              ЗДЕСЬ
+            </button>
+          </p>
         </div>
       </div>
     </BaseBlock>
