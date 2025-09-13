@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseBlock from './BaseBlock';
-import mapImage from '../../assets/map.png';
+import YandexMap from '../YandexMap';
 
 const HowToFindUsBlock = ({ blockNames, hideBlockInfo }) => {
   return (
@@ -14,11 +14,7 @@ const HowToFindUsBlock = ({ blockNames, hideBlockInfo }) => {
         </p>
       </div>
       <div className="mb-7">
-        <img
-          src={mapImage}
-          alt="Карта расположения церкви"
-          className="w-full rounded-lg"
-        />
+        <YandexMap className="w-full" />
       </div>
       <div className="flex flex-col gap-2.5 text-left text-base text-[#023047]">
         <p className="font-bold">По любым вопросам вы можете позвонить:</p>
