@@ -1,11 +1,14 @@
-import StartPage from "./components/StartPage";
-import "./App.css";
+import StartPage from './components/StartPage';
+import RadioPlayerProvider from './contexts/RadioPlayerProvider';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <StartPage />
-    </div>
+    <RadioPlayerProvider>
+      <div className="App">
+        <StartPage />
+      </div>
+    </RadioPlayerProvider>
   );
 }
 

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useRadioPlayer } from '../contexts/radioPlayerContext';
+import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
 import mainBanner from '../assets/main-banner.png';
 import howGodTreatsYou from '../assets/how-god-treats-you.png';
@@ -141,7 +143,6 @@ function StartPage({ defaultContentKey = null }) {
   const [contentKey, setContentKey] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
@@ -166,19 +167,17 @@ function StartPage({ defaultContentKey = null }) {
   };
 
   // Функции для управления радиоплеером
+  const { isPlaying, togglePlay } = useRadioPlayer();
+
   const toggleRadioPlayer = () => {
     setRadioPlayerVisible(!radioPlayerVisible);
   };
 
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    // Здесь можно добавить логику воспроизведения/паузы
-    console.log(isPlaying ? 'Pause' : 'Play');
-  };
-
   const closeRadioPlayer = () => {
+    if (isPlaying) {
+      togglePlay();
+    }
     setRadioPlayerVisible(false);
-    setIsPlaying(false);
   };
 
   // Объект для переключения между компонентами
@@ -549,58 +548,7 @@ function StartPage({ defaultContentKey = null }) {
               {blockNames.RADIO_PLAYER}
             </p>
           ) : (
-            <div className="relative flex h-full flex-col items-center justify-center p-3">
-              {/* Крестик закрытия */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  closeRadioPlayer();
-                }}
-                className="absolute top-2 right-3 cursor-pointer text-lg font-bold text-white hover:text-gray-300"
-              >
-                ✕
-              </button>
-
-              {/* Название радиостанции */}
-              <p className="mb-2 text-center text-sm text-white">
-                Доброе Духовное Радио
-              </p>
-
-              {/* Кнопки управления */}
-              <div className="flex items-center gap-3">
-                {/* Кнопка Play/Pause */}
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    togglePlayPause();
-                  }}
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200"
-                >
-                  {isPlaying ? (
-                    <span className="-mt-0.5 text-lg text-[var(--color-primary-dark)]">
-                      ⏸
-                    </span>
-                  ) : (
-                    <span className="ml-0.5 text-lg text-[var(--color-primary-dark)]">
-                      ▶
-                    </span>
-                  )}
-                </button>
-
-                {/* Индикатор громкости */}
-                <div className="flex items-center gap-1">
-                  <span className="text-xs text-white">🔊</span>
-                  <div className="h-1 w-12 rounded bg-white">
-                    <div className="h-1 w-8 rounded bg-[var(--color-accent-yellow)]"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Статус */}
-              <p className="mt-2 text-xs text-white">
-                {isPlaying ? 'В эфире' : 'Остановлено'}
-              </p>
-            </div>
+            <RadioPlayer onClose={closeRadioPlayer} />
           )}
         </div>
         <div
