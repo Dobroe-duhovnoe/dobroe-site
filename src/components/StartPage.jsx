@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import mainBanner from '../assets/main-banner.png';
+import howGodTreatsYou from '../assets/how-god-treats-you.png';
+import whatWeBelieve from '../assets/what-we-believe.png';
+import listenAndWatch from '../assets/listen-and-watch.png';
+import pastor from '../assets/pastor.png';
 import {
   AboutUsBlock,
   DailyMessageBlock,
@@ -374,7 +379,7 @@ function StartPage({ defaultContentKey = null }) {
               }}
               className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
               style={{
-                backgroundImage: "url('./src/assets/main-banner.png')",
+                backgroundImage: `url(${mainBanner})`,
               }}
             >
               <div className="flex w-full items-center justify-center">
@@ -394,7 +399,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.HOW_GOD_TREATS_YOU)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/how-god-treats-you.png')",
+                  backgroundImage: `url(${howGodTreatsYou})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -405,7 +410,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.WHAT_WE_BELIEVE)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/what-we-believe.png')",
+                  backgroundImage: `url(${whatWeBelieve})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -417,7 +422,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.LISTEN_AND_WATCH)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/listen-and-watch.png')",
+                  backgroundImage: `url(${listenAndWatch})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
@@ -429,7 +434,7 @@ function StartPage({ defaultContentKey = null }) {
                 onClick={() => showBlockInfo(blockNames.PASTOR)}
                 className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                 style={{
-                  backgroundImage: "url('./src/assets/pastor.png')",
+                  backgroundImage: `url(${pastor})`,
                 }}
               >
                 <span className="w-2/3 text-left font-bold text-white drop-shadow-lg">
