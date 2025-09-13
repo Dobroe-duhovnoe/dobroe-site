@@ -5,7 +5,7 @@ const RadioPlayer = ({ onClose }) => {
   const { isPlaying, togglePlay, volume, adjustVolume } = useRadioPlayer();
 
   return (
-    <div className="relative flex h-full flex-col items-center justify-center p-3">
+    <div className="relative flex h-full flex-col items-center justify-center p-2 md:p-3">
       {/* Крестик закрытия */}
       <button
         onClick={(e) => {
@@ -18,19 +18,19 @@ const RadioPlayer = ({ onClose }) => {
       </button>
 
       {/* Название радиостанции */}
-      <p className="mb-2 text-center text-sm text-white">
-        Доброе Духовное Радио
+      <p className="mb-1 text-center text-xs text-white md:mb-2 md:text-sm">
+        RuWorship
       </p>
 
       {/* Кнопки управления */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col items-center gap-2">
         {/* Кнопка Play/Pause */}
         <button
           onClick={(e) => {
             e.stopPropagation();
             togglePlay();
           }}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200"
+          className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200 md:h-10 md:w-10"
         >
           {isPlaying ? (
             <span className="-mt-0.5 text-lg text-[var(--color-primary-dark)]">
@@ -50,12 +50,12 @@ const RadioPlayer = ({ onClose }) => {
               e.stopPropagation();
               adjustVolume(volume - 0.1);
             }}
-            className="cursor-pointer text-sm text-white hover:text-gray-200"
+            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
           >
             🔉
           </button>
           <div
-            className="group relative h-6 w-20 cursor-pointer"
+            className="group relative h-6 w-16 cursor-pointer md:w-20"
             onClick={(e) => e.stopPropagation()}
           >
             <input
@@ -81,7 +81,7 @@ const RadioPlayer = ({ onClose }) => {
               e.stopPropagation();
               adjustVolume(volume + 0.1);
             }}
-            className="cursor-pointer text-sm text-white hover:text-gray-200"
+            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
           >
             🔊
           </button>
@@ -89,7 +89,7 @@ const RadioPlayer = ({ onClose }) => {
       </div>
 
       {/* Статус */}
-      <p className="mt-2 text-xs text-white">
+      <p className="mt-1 text-[10px] text-white md:mt-2 md:text-xs">
         {isPlaying ? 'В эфире' : 'Остановлено'}
       </p>
     </div>

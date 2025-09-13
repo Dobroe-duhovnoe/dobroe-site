@@ -467,7 +467,7 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
           Служения «Доброе Духовное» г.Ростов-на-Дону
         </p>
 
-        <div className="mb-6 grid grid-cols-4 gap-2 text-xs">
+        <div className="mb-6 grid grid-cols-2 gap-2 text-xs md:grid-cols-4">
           {beliefSections.map((section) => (
             <button
               key={section.id}
