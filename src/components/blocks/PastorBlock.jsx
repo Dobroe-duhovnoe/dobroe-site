@@ -122,7 +122,7 @@ const PastorBlock = ({ blockNames, hideBlockInfo }) => {
           Религиозная группа "Служение ДОБРОЕ ДУХОВНОЕ"
         </p>
 
-        <div className="mb-6 grid grid-cols-4 gap-2 text-xs">
+        <div className="mb-6 grid grid-cols-2 gap-2 text-xs md:grid-cols-4">
           {pastorSections.map((section) => (
             <button
               key={section.id}
