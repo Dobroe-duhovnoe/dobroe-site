@@ -5,7 +5,7 @@ import YandexMap from '../YandexMap';
 const HowToFindUsBlock = ({ blockNames, hideBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.HOW_TO_FIND_US} onClose={hideBlockInfo}>
-      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[#023047]">
+      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[var(--color-primary-dark)]">
         <p className="font-bold">
           Каждое воскресенье в 14:00 проходят богослужения по адресу:
         </p>

@@ -11,7 +11,7 @@ const ContactForm = ({ type = 'prayer' }) => {
   const inputClassName =
     'custom-focus w-full rounded-lg px-4 py-3 text-gray-700 placeholder-gray-500';
   const buttonClassName =
-    'focus:ring-opacity-50 w-full rounded-lg bg-[#F59E0B] px-4 py-3 font-semibold text-white transition-colors duration-200 hover:bg-[#D97706] focus:ring-2 focus:ring-[#F59E0B] focus:outline-none';
+    'focus:ring-opacity-50 w-full cursor-pointer rounded-lg bg-[var(--color-button-primary)] px-4 py-3 font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-button-hover)] focus:ring-2 focus:ring-[var(--color-button-primary)] focus:outline-none';
 
   useEffect(() => {
     if (showSuccessModal) {
@@ -115,7 +115,7 @@ const ContactForm = ({ type = 'prayer' }) => {
       {showSuccessModal && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          style={{ backgroundColor: 'var(--color-overlay)' }}
         >
           <div className="animate-bounce-in mx-4 max-w-sm rounded-xl bg-white p-6 shadow-2xl">
             <div className="mb-4 flex items-center justify-center">
@@ -135,7 +135,7 @@ const ContactForm = ({ type = 'prayer' }) => {
                 </svg>
               </div>
             </div>
-            <h3 className="mb-2 text-center text-lg font-semibold text-[#023047]">
+            <h3 className="mb-2 text-center text-lg font-semibold text-[var(--color-primary-dark)]">
               Сообщение отправлено!
             </h3>
             <p className="text-center text-sm text-gray-600">

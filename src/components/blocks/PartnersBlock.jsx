@@ -25,11 +25,11 @@ const PartnersBlock = ({ hideBlockInfo }) => {
   const [selectedPartner, setSelectedPartner] = useState(partners[0]);
   return (
     <BaseBlock title={'НАШИ ДРУЗЬЯ И ПАРТНЕРЫ'} onClose={hideBlockInfo}>
-      <div className="mb-4 grid grid-cols-3 gap-4 text-[10px] text-[#023047]">
+      <div className="mb-4 grid grid-cols-3 gap-4 text-[10px] text-[var(--color-primary-dark)]">
         {partners.map((partner) => (
           <button
             key={partner.id}
-            className={`cursor-pointer rounded-sm px-2 py-5 hover:opacity-90 ${selectedPartner?.id === partner.id ? 'bg-[#FFB700]' : 'bg-[#8FAED3]'}`}
+            className={`cursor-pointer rounded-sm px-2 py-5 hover:opacity-90 ${selectedPartner?.id === partner.id ? 'bg-[var(--color-accent-yellow)]' : 'bg-[var(--color-primary-light)]'}`}
             onClick={() => setSelectedPartner(partner)}
           >
             {partner.name}

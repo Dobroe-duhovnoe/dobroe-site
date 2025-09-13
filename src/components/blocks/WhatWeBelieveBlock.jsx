@@ -7,7 +7,9 @@ const beliefSections = [
     name: 'Мы верим',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">Мы верим:</h2>
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Мы верим:
+        </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
             В Единого благого Бога, вечно пребывающего в трёх Лицах (ипостасях),
@@ -140,8 +142,8 @@ const beliefSections = [
     name: 'Миссионерская деятельность',
     content: (
       <div className="text-left">
-        <h2 className="mb-4 text-xl font-bold text-[#023047]">
-          2. Миссионерская деятельность
+        <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
+          Миссионерская деятельность
         </h2>
         <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
@@ -469,10 +471,10 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
           {beliefSections.map((section) => (
             <button
               key={section.id}
-              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[#023047] transition-colors hover:opacity-90 ${
+              className={`cursor-pointer rounded-lg px-3 py-4 text-center text-[var(--color-primary-dark)] transition-colors hover:opacity-90 ${
                 selectedSection?.id === section.id
-                  ? 'bg-[#FFB700]'
-                  : 'bg-[#8FAED3]'
+                  ? 'bg-[var(--color-accent-yellow)]'
+                  : 'bg-[var(--color-primary-light)]'
               }`}
               onClick={() => setSelectedSection(section)}
             >

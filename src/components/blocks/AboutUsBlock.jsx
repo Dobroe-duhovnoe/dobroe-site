@@ -4,7 +4,7 @@ import BaseBlock from './BaseBlock';
 const AboutUsBlock = ({ blockNames, hideBlockInfo, showBlockInfo }) => {
   return (
     <BaseBlock title={blockNames.ABOUT_US} onClose={hideBlockInfo}>
-      <div className="flex flex-col items-start justify-start text-left text-base text-[#023047]">
+      <div className="flex flex-col items-start justify-start text-left text-base text-[var(--color-primary-dark)]">
         <p className="mb-6">Служение “ДОБРОЕ ДУХОВНОЕ”</p>
         <div className="mb-6 flex flex-col gap-2.5">
           <h2 className="text-xl font-bold">Кратко о нас</h2>

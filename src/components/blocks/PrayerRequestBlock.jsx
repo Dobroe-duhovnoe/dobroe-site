@@ -17,7 +17,6 @@ const PrayerRequestBlock = ({ blockNames, hideBlockInfo }) => {
         </p>
         <p>Заполните форму ниже.</p>
       </div>
-
       <ContactForm type="prayer" />
     </BaseBlock>
   );

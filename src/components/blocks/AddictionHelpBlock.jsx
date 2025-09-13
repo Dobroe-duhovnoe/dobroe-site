@@ -5,7 +5,7 @@ import ContactForm from '../ContactForm';
 const AddictionHelpBlock = ({ hideBlockInfo }) => {
   return (
     <BaseBlock title={'СВОБОДА ОТ ЗАВИСИМОСТИ'} onClose={hideBlockInfo}>
-      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[#023047]">
+      <div className="mb-5 flex flex-col gap-2.5 text-left text-base text-[var(--color-primary-dark)]">
         <p>
           Если вам или вашим близким необходима свобода от зависимости (нарко,
           алко, игровой и т.д.), позвоните по телефону: +7 928 616 58 28
