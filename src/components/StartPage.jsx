@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
-import howGodTreatsYouImg from '../assets/how-god-treats-you.webp';
-import whatWeBelieveImg from '../assets/what-we-believe.webp';
-import listenAndWatchImg from '../assets/listen-and-watch.webp';
-import pastorImg from '../assets/pastor.webp';
 import {
   AboutUsBlock,
   DailyMessageBlock,
