@@ -1,16 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BaseBlock from './BaseBlock';
-import { yearlyMessages } from '../../data/yearlyMessages';
+// import { useState } from 'react';
+// import { yearlyMessages } from '../../data/yearlyMessages';
 
 const DailyMessageBlock = ({ blockNames, hideBlockInfo }) => {
+  /* 
+  // Временно закомментировано - будет восстановлено позже
   const [selectedMonth, setSelectedMonth] = useState(1);
   const [selectedDay, setSelectedDay] = useState(1);
 
   const currentMessage = yearlyMessages[selectedMonth]?.days[selectedDay - 1];
+  */
 
   return (
     <BaseBlock title={blockNames.DAILY_MESSAGE} onClose={hideBlockInfo}>
-      <div className="flex h-full flex-col">
+      <div className="flex h-full flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center gap-6">
+          <div className="text-6xl">📖</div>
+          <div className="max-w-md">
+            <h3 className="mb-4 text-xl font-bold text-[#023047]">
+              Скоро здесь появится информация
+            </h3>
+            <p className="text-gray-600">
+              Мы работаем над подготовкой ежедневных посланий для духовного
+              роста и назидания. Следите за обновлениями!
+            </p>
+          </div>
+        </div>
+
+        {/* 
+        Временно закомментированный функционал - будет восстановлен позже:
+        
         <div className="mb-4">
           <div className="mb-3 flex flex-wrap gap-2">
             {Object.entries(yearlyMessages).map(([month, data]) => (
@@ -32,7 +52,6 @@ const DailyMessageBlock = ({ blockNames, hideBlockInfo }) => {
           </div>
         </div>
 
-        {/* Кнопки выбора дня */}
         <div className="mb-6">
           <div className="flex flex-wrap gap-1 text-xs">
             {yearlyMessages[selectedMonth]?.days.map((day) => (
@@ -79,6 +98,7 @@ const DailyMessageBlock = ({ blockNames, hideBlockInfo }) => {
             </div>
           </div>
         )}
+        */}
       </div>
     </BaseBlock>
   );
