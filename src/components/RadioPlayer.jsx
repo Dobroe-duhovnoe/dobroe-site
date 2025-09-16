@@ -6,7 +6,6 @@ const RadioPlayer = ({ onClose }) => {
 
   return (
     <div className="relative flex h-full flex-col items-center justify-center p-2 md:p-3">
-      {/* Крестик закрытия */}
       <button
         onClick={(e) => {
           e.stopPropagation();
@@ -17,14 +16,11 @@ const RadioPlayer = ({ onClose }) => {
         ✕
       </button>
 
-      {/* Название радиостанции */}
       <p className="mb-1 text-center text-xs text-white md:mb-2 md:text-sm">
         RuWorship
       </p>
 
-      {/* Кнопки управления */}
       <div className="flex flex-col items-center gap-2">
-        {/* Кнопка Play/Pause */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -43,7 +39,6 @@ const RadioPlayer = ({ onClose }) => {
           )}
         </button>
 
-        {/* Управление громкостью */}
         <div className="flex items-center gap-1">
           <button
             onClick={(e) => {
