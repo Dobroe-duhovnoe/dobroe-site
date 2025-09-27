@@ -1,12 +1,13 @@
-import StartPage from './components/StartPage';
+import { RouterProvider } from 'react-router-dom';
 import RadioPlayerProvider from './contexts/RadioPlayerProvider';
+import { router } from './router';
 import './App.css';
 
 function App() {
   return (
     <RadioPlayerProvider>
       <div className="App">
-        <StartPage />
+        <RouterProvider router={router} />
       </div>
     </RadioPlayerProvider>
   );

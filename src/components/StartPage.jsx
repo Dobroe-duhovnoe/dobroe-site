@@ -105,18 +105,7 @@ const LevelLogo = ({ className }) => (
   </svg>
 );
 
-const useRouter = () => {
-  const navigate = (path) => {
-    // Здесь можно использовать window.history или другой способ навигации
-    console.log('Navigating to:', path);
-  };
-
-  const replace = (path) => {
-    console.log('Replacing with:', path);
-  };
-
-  return { navigate, replace, pathname: window.location.pathname };
-};
+import { useNavigate, useLocation } from 'react-router';
 
 // Простой Link компонент
 const Link = ({ href, children, className, ...props }) => (
@@ -139,7 +128,8 @@ const contentRoutes = {
 };
 
 function StartPage({ defaultContentKey = null }) {
-  const router = useRouter();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [contentKey, setContentKey] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
@@ -148,12 +138,7 @@ function StartPage({ defaultContentKey = null }) {
   const showBlockInfo = (blockType) => {
     if (selectedBlock !== blockType) {
       setSelectedBlock(blockType);
-      // Обновляем URL для переключения страниц
-      window.history.pushState(
-        { block: blockType },
-        '',
-        `/${blockUrlKeys[blockType]}`
-      );
+      navigate(`/${blockUrlKeys[blockType]}`);
     }
   };
 
@@ -288,27 +273,16 @@ function StartPage({ defaultContentKey = null }) {
 
   const handleClick = (contentKey) => {
     if (contentKey && contentRoutes[contentKey]) {
-      router.replace(`/${contentRoutes[contentKey]}`, undefined, {
-        shallow: true,
-        scroll: false,
-      });
+      navigate(`/${contentRoutes[contentKey]}`);
     }
   };
 
-  // Обработка навигации по истории браузера
+  // Обработка маршрутизации
   useEffect(() => {
-    const handlePopState = (event) => {
-      if (event.state && event.state.block) {
-        setSelectedBlock(event.state.block);
-      } else {
-        setSelectedBlock(null);
-      }
-    };
-
-    // Восстанавливаем состояние при загрузке страницы
-    const path = window.location.pathname;
-    if (path !== '/') {
-      // Находим соответствующий блок по английскому URL
+    const path = location.pathname;
+    if (path === '/') {
+      setSelectedBlock(null);
+    } else {
       const foundBlock = Object.entries(blockUrlKeys).find(
         ([, urlKey]) => urlKey === path.substring(1)
       );
@@ -316,10 +290,7 @@ function StartPage({ defaultContentKey = null }) {
         setSelectedBlock(foundBlock[0]);
       }
     }
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [location.pathname]);
   return (
     <div className="relative mx-auto w-full max-w-7xl">
       {/* Mobile Layout */}
