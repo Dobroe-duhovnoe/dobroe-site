@@ -1,9 +1,13 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter } from 'react-router-dom';
 import StartPage from './components/StartPage';
 
 export const router = createBrowserRouter([
   {
-    path: '/*',
+    path: '/',
+    element: <StartPage />,
+  },
+  {
+    path: '/:page',
     element: <StartPage />,
   },
 ]);
