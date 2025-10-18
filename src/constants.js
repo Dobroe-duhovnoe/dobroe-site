@@ -1,9 +1,7 @@
 export const urls = {
-  TELEGRAM: '',
-  YOUTUBE: '',
-  VK: '',
-  RUTUBE: '',
-  YANDEX_MUSIC: '',
-  ZVUK: '',
-  VK_VIDEO: ''
+  TELEGRAM: 'https://t.me/dobroeduhovnoe',
+  YOUTUBE: 'https://youtube.com/@dobroeduhovnoe',
+  VK: 'https://vk.com/dobroeduhovnoe',
+  RUTUBE: 'https://rutube.ru/channel/65324607',
+  VK_VIDEO: 'https://vkvideo.ru/@dobroeduhovnoe'
 };
