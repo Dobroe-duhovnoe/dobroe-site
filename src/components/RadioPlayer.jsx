@@ -3,7 +3,6 @@ import { useRadioPlayer } from '../contexts/radioPlayerContext';
 
 const RadioPlayer = ({ onClose }) => {
   const { isPlaying, togglePlay, volume, adjustVolume } = useRadioPlayer();
-
   return (
     <div className="relative flex h-full flex-col items-center justify-center p-2 md:p-3">
       <button
@@ -15,10 +14,6 @@ const RadioPlayer = ({ onClose }) => {
       >
         ✕
       </button>
-
-      <p className="mb-1 text-center text-xs text-white md:mb-2 md:text-sm">
-        RuWorship
-      </p>
 
       <div className="flex flex-col items-center gap-2">
         <button
@@ -39,7 +34,7 @@ const RadioPlayer = ({ onClose }) => {
           )}
         </button>
 
-        <div className="flex items-center gap-1">
+        <div className="flex w-full items-center gap-1">
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -67,9 +62,6 @@ const RadioPlayer = ({ onClose }) => {
                 background: `linear-gradient(to right, var(--color-accent-yellow) 0%, var(--color-accent-yellow) ${volume * 100}%, white ${volume * 100}%, white 100%)`,
               }}
             />
-            <div className="absolute -top-4 left-0 hidden w-full text-center text-xs text-white group-hover:block">
-              {Math.round(volume * 100)}%
-            </div>
           </div>
           <button
             onClick={(e) => {
@@ -83,9 +75,8 @@ const RadioPlayer = ({ onClose }) => {
         </div>
       </div>
 
-      {/* Статус */}
-      <p className="mt-1 text-[10px] text-white md:mt-2 md:text-xs">
-        {isPlaying ? 'В эфире' : 'Остановлено'}
+      <p className="mb-1 text-center text-xs text-white md:mb-2 md:text-sm">
+        RuWorship
       </p>
     </div>
   );
