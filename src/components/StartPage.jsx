@@ -40,6 +40,80 @@ const blockNames = {
   PASTOR: 'ПАСТОР',
 };
 
+const META_DATA = {
+  [blockNames.ABOUT_US]: {
+    title: 'О нас - Доброе Духовное',
+    description:
+      'Узнайте больше о нашей миссии, команде и о том, как мы служим людям, неся им благую весть.',
+  },
+  [blockNames.DAILY_MESSAGE]: {
+    title: 'Ежедневное послание - Доброе Духовное',
+    description:
+      'Получайте ежедневное духовное ободрение и наставление через наши короткие послания.',
+  },
+  [blockNames.HOW_TO_FIND_US]: {
+    title: 'Как нас найти - Доброе Духовное',
+    description:
+      'Найдите адреса наших центров, время служений и контактную информацию. Мы всегда рады видеть вас!',
+  },
+  [blockNames.PARTNERS]: {
+    title: 'Партнёры - Доброе Духовное',
+    description:
+      'Познакомьтесь с нашими партнёрами, которые помогают нам в служении и распространении благой вести.',
+  },
+  [blockNames.ADDICTION_HELP]: {
+    title: 'Помощь зависимым - Доброе Духовное',
+    description:
+      'Мы предлагаем помощь и поддержку людям, страдающим от наркотической, алкогольной и других зависимостей.',
+  },
+  [blockNames.RADIO_PLAYER]: {
+    title: 'Радиоплеер - Прямой эфир Доброго Духовного Радио',
+    description:
+      'Слушайте прямой эфир нашего радио, где бы вы ни находились. Духовная музыка, проповеди и ободряющие программы.',
+  },
+  [blockNames.DONATE]: {
+    title: 'Пожертвовать - Поддержите наше служение',
+    description:
+      'Ваша поддержка помогает нам продолжать наше служение. Узнайте, как вы можете сделать пожертвование.',
+  },
+  [blockNames.LEGAL_INFO]: {
+    title: 'Юридическая информация - Доброе Духовное',
+    description:
+      'Ознакомьтесь с юридической информацией о нашей организации, нашими правилами и условиями.',
+  },
+  [blockNames.PRAYER_REQUEST]: {
+    title: 'Молитвенная просьба - Доброе Духовное',
+    description:
+      'Мы верим в силу молитвы. Отправьте нам свою молитвенную просьбу, и мы будем молиться за вас.',
+  },
+  [blockNames.HOW_GOD_TREATS_YOU]: {
+    title: 'Как Бог относится к тебе - Доброе Духовное',
+    description:
+      'Узнайте о Божьей любви, милости и прощении. Мы поможем вам понять, как Бог видит вас.',
+  },
+  [blockNames.WHAT_WE_BELIEVE]: {
+    title: 'Во что мы верим - Доброе Духовное',
+    description:
+      'Ознакомьтесь с основами нашего вероучения, нашими ценностями и принципами.',
+  },
+  [blockNames.LISTEN_AND_WATCH]: {
+    title: 'Слушать и смотреть - Проповеди и материалы',
+    description:
+      'Смотрите и слушайте записи наших проповедей, семинаров и других духовных материалов в удобное для вас время.',
+  },
+  [blockNames.PASTOR]: {
+    title: 'Пастор - Доброе Духовное',
+    description:
+      'Познакомьтесь с нашим пастором, его служением и учением. Найдите вдохновение в его словах.',
+  },
+  DEFAULT: {
+    title:
+      'Служение "ДОБРОЕ ДУХОВНОЕ" - Проявить любовь к Богу через любовь к человеку',
+    description:
+      'Мы поместная церковь с видением открывать Божью любовь к людям, рассказывая им о жертве Иисуса Христа. Мы развиваем медиа-направление для проповеди Евангелия и приглашаем вас присоединиться к нам.',
+  },
+};
+
 const blockUrlKeys = {
   [blockNames.ABOUT_US]: 'about',
   [blockNames.DAILY_MESSAGE]: 'daily-message',
@@ -144,6 +218,18 @@ function StartPage({ defaultContentKey = null }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
 
+  useEffect(() => {
+    const updateMetaTags = (title, description) => {
+      document.title = title;
+      const descriptionTag = document.querySelector('meta[name="description"]');
+      if (descriptionTag) {
+        descriptionTag.setAttribute('content', description);
+      }
+    };
+
+    const metaData = META_DATA[selectedBlock] || META_DATA.DEFAULT;
+    updateMetaTags(metaData.title, metaData.description);
+  }, [selectedBlock]);
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
     if (selectedBlock !== blockType) {
