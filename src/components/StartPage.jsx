@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRadioPlayer } from '../contexts/radioPlayerContext';
 import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
-import mainBanner from '../assets/main-banner.png';
+import mainBanner from '/main-banner.png';
 import howGodTreatsYou from '../assets/how-god-treats-you.png';
 import whatWeBelieve from '../assets/what-we-believe.png';
 import listenAndWatch from '../assets/listen-and-watch.png';
