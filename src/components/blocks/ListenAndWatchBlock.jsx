@@ -13,12 +13,12 @@ const ListenAndWatchBlock = ({ blockNames, hideBlockInfo }) => {
           <ul className="list-disc pl-6 text-lg text-gray-700">
             <li>
               <a
-                href={urls.VK_VIDEO}
+                href={urls.YOUTUBE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:opacity-90"
               >
-                VK Видео
+                YouTube
               </a>
             </li>
             <li>
@@ -33,12 +33,22 @@ const ListenAndWatchBlock = ({ blockNames, hideBlockInfo }) => {
             </li>
             <li>
               <a
-                href={urls.YOUTUBE}
+                href={urls.TELEGRAM}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:opacity-90"
               >
-                YouTube
+                Telegram
+              </a>
+            </li>
+            <li>
+              <a
+                href={urls.VK_VIDEO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:opacity-90"
+              >
+                VK
               </a>
             </li>
           </ul>
