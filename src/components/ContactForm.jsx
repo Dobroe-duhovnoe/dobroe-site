@@ -34,7 +34,10 @@ const ContactForm = ({ type = 'prayer' }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = '/.netlify/functions/sendToTelegram';
+    // Используем переменную окружения или fallback на локальный PHP (для обратной совместимости)
+    const API_URL = import.meta.env.VITE_API_URL || '';
+    const url = API_URL ? `${API_URL}/sendToTelegram` : '/sendToTelegram.php';
+
     const data = {
       type,
       text: `Имя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`,
