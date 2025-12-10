@@ -10,7 +10,7 @@ const pastorSections = [
         <h2 className="mb-4 text-xl font-bold text-[var(--color-primary-dark)]">
           ВИТАЛИЙ ЮРЬЕВИЧ ПЕРЕДЕРЕЕВ
         </h2>
-        <div className="space-y-3 text-sm leading-relaxed text-gray-700">
+        {/* <div className="space-y-3 text-sm leading-relaxed text-gray-700">
           <p>
             Есть над чем задуматься: активно развивающиеся страны третьего мира
             представляют в исключительно кладовых себе глобальную, не
@@ -44,7 +44,7 @@ const pastorSections = [
             крупнейших компаний, вне зависимости от их уровня, должны быть
             описаны максимально подробно.
           </p>
-        </div>
+        </div> */}
       </div>
     ),
   },

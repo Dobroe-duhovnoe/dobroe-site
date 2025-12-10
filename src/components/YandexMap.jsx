@@ -22,7 +22,7 @@ const YandexMap = ({ className = '' }) => {
           loading="lazy"
           allowFullScreen
           style={{
-            pointerEvents: 'auto', // Убедимся, что карта интерактивна только когда видима
+            pointerEvents: 'auto',
             zIndex: 1,
           }}
         />
