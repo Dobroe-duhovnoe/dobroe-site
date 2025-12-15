@@ -34,9 +34,10 @@ const ContactForm = ({ type = 'prayer' }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Используем переменную окружения или fallback на локальный PHP (для обратной совместимости)
-    const API_URL = import.meta.env.VITE_API_URL || '';
-    const url = API_URL ? `${API_URL}/sendToTelegram` : '/sendToTelegram.php';
+    const API_URL =
+      import.meta.env.VITE_API_URL ||
+      'https://api-bot-dobroe-duhovnoe.vercel.app';
+    const url = `${API_URL}/sendToTelegram`;
 
     const data = {
       type,

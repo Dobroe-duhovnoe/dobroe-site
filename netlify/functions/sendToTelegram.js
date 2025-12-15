@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const API_URL = 'https://api-bot-dobroe-duhovnoe.vercel.app/sendToTelegram';
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
@@ -8,24 +10,28 @@ exports.handler = async (event) => {
     };
   }
 
-  const BOT_TOKEN = process.env.BOT_TOKEN;
-  const CHAT_ID = process.env.CHAT_ID;
-  const MESSAGE_THREAD_ID = {
-    dependents: process.env.MESSAGE_THREAD_ID_DEPENDENTS,
-    prayer: process.env.MESSAGE_THREAD_ID_PRAYER
-  };
-
   try {
     const { text, type } = JSON.parse(event.body);
 
+    if (!text || !type) {
+      return {
+        statusCode: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        },
+        body: JSON.stringify({ error: 'Invalid payload: text and type are required' })
+      };
+    }
 
-    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      chat_id: CHAT_ID,
-      text: text,
-      message_thread_id: MESSAGE_THREAD_ID[type],
-      parse_mode: 'HTML'
+    // Отправляем запрос на Vercel API
+    const response = await axios.post(API_URL, {
+      text,
+      type
+    }, {
+      timeout: 10000
     });
-
 
     return {
       statusCode: 200,
@@ -41,7 +47,7 @@ exports.handler = async (event) => {
     console.error('Error:', error.response?.data || error.message);
 
     return {
-      statusCode: 500,
+      statusCode: error.response?.status || 500,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
