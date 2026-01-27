@@ -652,7 +652,7 @@ function StartPage({ defaultContentKey = null }) {
             }}
             className="flex h-[14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
           >
-            <img src={logo} alt="Логотип" className="w-52" />
+            <img src={logo} alt="Логотип" className="w-40 lg:w-52" />
           </div>
 
           <div
