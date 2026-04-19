@@ -1,0 +1,194 @@
+@import 'tailwindcss';
+
+/* CSS переменные для цветовой схемы */
+:root {
+  /* Основные цвета бренда */
+  --color-primary-dark: #023047; /* Темно-синий - основной цвет текста */
+  --color-primary-light: #8faed3; /* Светло-синий - неактивные кнопки */
+  --color-accent-yellow: #ffb700; /* Желтый - активные кнопки */
+  --color-accent-orange: #feb603; /* Оранжевый - альтернативный акцент */
+
+  /* Цвета для форм и кнопок */
+  --color-button-primary: #f59e0b; /* Оранжевый - основные кнопки */
+  --color-button-hover: #d97706; /* Темно-оранжевый - hover состояние */
+
+  /* Градиентные цвета */
+  --color-gradient-mid: #06405d; /* Средний синий для градиентов */
+  --color-gradient-light: #1a4a62; /* Светлый синий для градиентов */
+
+  /* Фоны и overlay */
+  --color-overlay: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
+  --color-background-light: #fff8e1; /* Светло-желтый фон */
+
+  /* Семантические цвета */
+  --color-success: #10b981; /* Зеленый для успеха */
+  --color-error: #ef4444; /* Красный для ошибок */
+  --color-warning: #f59e0b; /* Оранжевый для предупреждений */
+}
+
+/* Утилитарные классы для часто используемых цветов */
+.text-brand-dark {
+  color: var(--color-primary-dark);
+}
+.text-brand-light {
+  color: var(--color-primary-light);
+}
+.text-accent-yellow {
+  color: var(--color-accent-yellow);
+}
+.text-accent-orange {
+  color: var(--color-accent-orange);
+}
+
+.bg-brand-dark {
+  background-color: var(--color-primary-dark);
+}
+.bg-brand-light {
+  background-color: var(--color-primary-light);
+}
+.bg-accent-yellow {
+  background-color: var(--color-accent-yellow);
+}
+.bg-accent-orange {
+  background-color: var(--color-accent-orange);
+}
+.bg-button-primary {
+  background-color: var(--color-button-primary);
+}
+
+.border-brand-dark {
+  border-color: var(--color-primary-dark);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  display: block;
+  place-items: initial;
+  min-height: 100vh;
+}
+
+.blue-two-layers {
+  background: linear-gradient(
+    140deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary-dark) 50%,
+    var(--color-gradient-mid) 50%,
+    var(--color-gradient-mid) 60%,
+    var(--color-gradient-light) 60%,
+    var(--color-gradient-light) 100%
+  );
+}
+
+.white-gray-two-layers {
+  background: linear-gradient(
+    140deg,
+    #ffffff 0%,
+    #ffffff 50%,
+    #e3e3e3 50%,
+    #e3e3e3 60%,
+    #aeaeae 60%,
+    #aeaeae 100%
+  );
+}
+
+.gray-two-layers {
+  position: relative;
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.gray-two-layers::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4b5563, #374151);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.gray-two-layers:hover::after {
+  opacity: 1;
+}
+
+/* Базовые стили */
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(237, 237, 237, 1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Убираем центрирование для полноэкранной страницы */
+body {
+  display: block;
+  place-items: initial;
+  min-height: 100vh;
+}
+
+/* Стили для ссылок */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+/* Анимация для модалки */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate3d(0, -50px, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Равномерный фокус для инпутов */
+.custom-focus {
+  border: 1px solid #d1d5db; /* серый бордер по умолчанию */
+}
+
+.custom-focus:focus {
+  outline: none;
+  border: 1px solid var(--color-primary-dark) !important; /* полностью заменяем бордер на синий */
+}
+
+/* Медиа-запросы для светлой темы */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+}
