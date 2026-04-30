@@ -54,7 +54,7 @@ const PhotoGallery = () => {
           onClick={() => setActivePhoto(null)}
         >
           <div
-            className="relative max-h-full max-w-2xl w-full"
+            className="relative max-h-full w-full max-w-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="overflow-hidden rounded-2xl bg-white p-2">
@@ -66,7 +66,7 @@ const PhotoGallery = () => {
             </div>
             <button
               onClick={() => setActivePhoto(null)}
-              className="absolute -right-3 -top-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-sm font-bold text-[var(--color-primary-dark)] shadow-lg transition-colors hover:bg-[var(--color-accent-yellow)]"
+              className="absolute -top-3 -right-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-sm font-bold text-[var(--color-primary-dark)] shadow-lg transition-colors hover:bg-[var(--color-accent-yellow)]"
             >
               ✕
             </button>
@@ -78,32 +78,101 @@ const PhotoGallery = () => {
 };
 
 const portraitPhotos = [
-  { src: new URL('../../assets/pastor/pastor-03.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-04.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-05.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-08.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-09.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-10.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-11.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-13.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-16.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-17.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-18.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-19.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-20.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-21.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-22.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-23.webp', import.meta.url).href, alt: 'Пастор Виталий' },
+  {
+    src: new URL('../../assets/pastor/pastor-03.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-04.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-05.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-08.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-09.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-10.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-11.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-13.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-16.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-17.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-18.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-19.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-20.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-21.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-22.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-23.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
 ];
 
 const landscapePhotos = [
-  { src: new URL('../../assets/pastor/pastor-01.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-02.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-06.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-07.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-12.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-14.webp', import.meta.url).href, alt: 'Пастор Виталий' },
-  { src: new URL('../../assets/pastor/pastor-15.webp', import.meta.url).href, alt: 'Пастор Виталий' },
+  {
+    src: new URL('../../assets/pastor/pastor-01.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-02.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-06.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-07.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-12.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-14.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
+  {
+    src: new URL('../../assets/pastor/pastor-15.webp', import.meta.url).href,
+    alt: 'Пастор Виталий',
+  },
 ];
 
 const pastorSections = [
@@ -182,16 +251,10 @@ const pastorSections = [
     id: 2,
     name: 'Образование',
     content: (
-      <div className="text-left">        <div className="space-y-3 text-sm leading-relaxed text-gray-700">
-          <p>
-            Пастор Виталий получил богословское образование в престижном
-            христианском университете, где изучал Священное Писание, церковную
-            историю и пастырское служение.
-          </p>
-          <p>
-            Продолжает постоянное обучение и участвует в семинарах для духовного
-            роста и развития навыков служения.
-          </p>
+      <div className="text-left">
+        {' '}
+        <div className="space-y-3 text-sm leading-relaxed text-gray-700">
+          <p>Информация готовится к публикации</p>
         </div>
       </div>
     ),
