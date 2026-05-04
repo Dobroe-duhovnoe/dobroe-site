@@ -1,9 +1,9 @@
 import React from 'react';
 import BaseBlock from './BaseBlock';
 
-const PartnersBlock = ({ blockNames, hideBlockInfo }) => {
+const FriendsBlock = ({ blockNames, hideBlockInfo }) => {
   return (
-    <BaseBlock title={blockNames.PARTNERS} onClose={hideBlockInfo}>
+    <BaseBlock title={blockNames.FRIENDS} onClose={hideBlockInfo}>
       <div className="flex h-full flex-col items-center justify-center text-center">
         <div className="flex flex-col items-center gap-6">
           <div className="text-6xl">📖</div>
@@ -12,7 +12,8 @@ const PartnersBlock = ({ blockNames, hideBlockInfo }) => {
               Скоро здесь будет информация
             </h3>
             <p className="text-gray-600">
-              Мы работаем над обновлением информации о наших партнёрах. Следите за обновлениями!
+              Мы работаем над обновлением информации о наших друзьях. Следите за
+              обновлениями!
             </p>
           </div>
         </div>
@@ -21,4 +22,4 @@ const PartnersBlock = ({ blockNames, hideBlockInfo }) => {
   );
 };
 
-export default PartnersBlock;
+export default FriendsBlock;

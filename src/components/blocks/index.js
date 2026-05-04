@@ -2,7 +2,7 @@ export { default as BaseBlock } from './BaseBlock';
 export { default as AboutUsBlock } from './AboutUsBlock';
 export { default as DailyMessageBlock } from './DailyMessageBlock';
 export { default as HowToFindUsBlock } from './HowToFindUsBlock';
-export { default as PartnersBlock } from './PartnersBlock';
+export { default as FriendsBlock } from './FriendsBlock';
 export { default as AddictionHelpBlock } from './AddictionHelpBlock';
 export { default as RadioPlayerBlock } from './RadioPlayerBlock';
 export { default as DonateBlock } from './DonateBlock';

@@ -15,7 +15,7 @@ import {
   AboutUsBlock,
   DailyMessageBlock,
   HowToFindUsBlock,
-  PartnersBlock,
+  FriendsBlock,
   AddictionHelpBlock,
   RadioPlayerBlock,
   DonateBlock,
@@ -31,8 +31,9 @@ const blockNames = {
   ABOUT_US: 'О НАС',
   DAILY_MESSAGE: 'ЕЖЕДНЕВНОЕ ПОСЛАНИЕ',
   HOW_TO_FIND_US: 'КАК НАС НАЙТИ',
-  PARTNERS: 'ПАРТНЁРЫ',
-  ADDICTION_HELP: 'ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
+  FRIENDS: 'НАШИ ДРУЗЬЯ',
+  ADDICTION_HELP:
+    'БЕСПЛАТНАЯ ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
   SOCIAL_MEDIA: 'СОЦИАЛЬНЫЕ СЕТИ',
   RADIO_PLAYER: 'РАДИОПЛЕЕР',
   DONATE: 'ПОЖЕРТВОВАТЬ',
@@ -60,7 +61,7 @@ const META_DATA = {
     description:
       'Найдите адреса наших центров, время служений и контактную информацию. Мы всегда рады видеть вас!',
   },
-  [blockNames.PARTNERS]: {
+  [blockNames.FRIENDS]: {
     title: 'Партнёры - Доброе Духовное',
     description:
       'Познакомьтесь с нашими партнёрами, которые помогают нам в служении и распространении благой вести.',
@@ -68,7 +69,7 @@ const META_DATA = {
   [blockNames.ADDICTION_HELP]: {
     title: 'Помощь зависимым - Доброе Духовное',
     description:
-      'Мы предлагаем помощь и поддержку людям, страдающим от наркотической, алкогольной и других зависимостей.',
+      'Бесплатная помощь и поддержка людям, страдающим от наркотической, алкогольной и других зависимостей.',
   },
   [blockNames.RADIO_PLAYER]: {
     title: 'Радиоплеер - Прямой эфир Доброго Духовного Радио',
@@ -122,7 +123,7 @@ const blockUrlKeys = {
   [blockNames.ABOUT_US]: 'about',
   [blockNames.DAILY_MESSAGE]: 'daily-message',
   [blockNames.HOW_TO_FIND_US]: 'how-to-find-us',
-  [blockNames.PARTNERS]: 'partners',
+  [blockNames.FRIENDS]: 'partners',
   [blockNames.ADDICTION_HELP]: 'addiction-help',
   [blockNames.SOCIAL_MEDIA]: 'social-media',
   [blockNames.RADIO_PLAYER]: 'radio-player',
@@ -155,7 +156,7 @@ const Login = ({ handleClick }) => (
   </div>
 );
 const Logo = () => <div>Logo Component</div>;
-const Partners = () => <div>Partners Component</div>;
+const Friends = () => <div>Friends Component</div>;
 const PasswordRecovery = () => <div>Password Recovery Component</div>;
 const Reviews = () => <div>Reviews Component</div>;
 
@@ -292,8 +293,8 @@ function StartPage({ defaultContentKey = null }) {
         hideBlockInfo={hideBlockInfo}
       />
     ),
-    [blockNames.PARTNERS]: (
-      <PartnersBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+    [blockNames.FRIENDS]: (
+      <FriendsBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
     [blockNames.ADDICTION_HELP]: (
       <AddictionHelpBlock
@@ -366,7 +367,7 @@ function StartPage({ defaultContentKey = null }) {
       </div>
     ),
     updates: <AboutVersion isStartPage={true} />,
-    partners: <Partners />,
+    partners: <Friends />,
     intro: <LevelIntro />,
     reviews: <Reviews />,
     howItWork: <HowItWorks />,
@@ -528,11 +529,11 @@ function StartPage({ defaultContentKey = null }) {
                 </div>
 
                 <div
-                  onClick={() => showBlockInfo(blockNames.PARTNERS)}
+                  onClick={() => showBlockInfo(blockNames.FRIENDS)}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
-                    {blockNames.PARTNERS}
+                    {blockNames.FRIENDS}
                   </p>
                 </div>
               </div>
@@ -678,11 +679,11 @@ function StartPage({ defaultContentKey = null }) {
             </p>
           </div>
           <div
-            onClick={() => showBlockInfo(blockNames.PARTNERS)}
+            onClick={() => showBlockInfo(blockNames.FRIENDS)}
             className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
-              {blockNames.PARTNERS}
+              {blockNames.FRIENDS}
             </p>
           </div>
         </aside>
