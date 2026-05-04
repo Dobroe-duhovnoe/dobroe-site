@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useRadioPlayer } from '../contexts/radioPlayerContext';
 import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
 import mainBanner from '../assets/main-banner.png';
@@ -257,18 +256,8 @@ function StartPage({ defaultContentKey = null }) {
     }
   };
 
-  // Функции для управления радиоплеером
-  const { isPlaying, togglePlay } = useRadioPlayer();
-
   const toggleRadioPlayer = () => {
     setRadioPlayerVisible(!radioPlayerVisible);
-  };
-
-  const closeRadioPlayer = () => {
-    if (isPlaying) {
-      togglePlay();
-    }
-    setRadioPlayerVisible(false);
   };
 
   // Объект для переключения между компонентами
@@ -611,7 +600,7 @@ function StartPage({ defaultContentKey = null }) {
                   onClick={toggleRadioPlayer}
                   className="blue-two-layers relative h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
-                  <RadioPlayer onClose={closeRadioPlayer} />
+                  <RadioPlayer />
                 </div>
 
                 <div
@@ -850,7 +839,7 @@ function StartPage({ defaultContentKey = null }) {
             onClick={toggleRadioPlayer}
             className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
-            <RadioPlayer onClose={closeRadioPlayer} />
+            <RadioPlayer />
           </div>
           <div
             onClick={() => showBlockInfo(blockNames.MISSION)}
