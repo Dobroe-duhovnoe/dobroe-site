@@ -18,7 +18,7 @@ import {
   FriendsBlock,
   AddictionHelpBlock,
   RadioPlayerBlock,
-  DonateBlock,
+  MissionBlock,
   LegalInfoBlock,
   PrayerRequestBlock,
   ListenAndWatchBlock,
@@ -36,7 +36,7 @@ const blockNames = {
     'БЕСПЛАТНАЯ ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
   SOCIAL_MEDIA: 'СОЦИАЛЬНЫЕ СЕТИ',
   RADIO_PLAYER: 'РАДИОПЛЕЕР',
-  DONATE: 'ПОЖЕРТВОВАТЬ',
+  MISSION: 'МИССИЯ «ДОБРОЕ ДУХОВНОЕ»',
   LEGAL_INFO: 'ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ',
   PRAYER_REQUEST: 'МЫ ХОТИМ ПОМОЛИТЬСЯ ЗА ВАС',
   HOW_GOD_TREATS_YOU: 'КАК БОГ ОТНОСИТСЯ К ТЕБЕ',
@@ -76,10 +76,10 @@ const META_DATA = {
     description:
       'Слушайте прямой эфир нашего радио, где бы вы ни находились. Духовная музыка, проповеди и ободряющие программы.',
   },
-  [blockNames.DONATE]: {
-    title: 'Пожертвовать - Поддержите наше служение',
+  [blockNames.MISSION]: {
+    title: 'Миссия «Доброе Духовное» - Доброе Духовное',
     description:
-      'Ваша поддержка помогает нам продолжать наше служение. Узнайте, как вы можете сделать пожертвование.',
+      'Узнайте о миссии служения «Доброе Духовное» и о том, как мы несём благую весть людям.',
   },
   [blockNames.LEGAL_INFO]: {
     title: 'Юридическая информация - Доброе Духовное',
@@ -127,7 +127,7 @@ const blockUrlKeys = {
   [blockNames.ADDICTION_HELP]: 'addiction-help',
   [blockNames.SOCIAL_MEDIA]: 'social-media',
   [blockNames.RADIO_PLAYER]: 'radio-player',
-  [blockNames.DONATE]: 'donate',
+  [blockNames.MISSION]: 'mission',
   [blockNames.LEGAL_INFO]: 'legal-info',
   [blockNames.PRAYER_REQUEST]: 'prayer-request',
   [blockNames.HOW_GOD_TREATS_YOU]: 'how-god-treats-you',
@@ -305,8 +305,8 @@ function StartPage({ defaultContentKey = null }) {
     [blockNames.RADIO_PLAYER]: (
       <RadioPlayerBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
-    [blockNames.DONATE]: (
-      <DonateBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+    [blockNames.MISSION]: (
+      <MissionBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
     [blockNames.LEGAL_INFO]: (
       <LegalInfoBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
@@ -621,11 +621,11 @@ function StartPage({ defaultContentKey = null }) {
                 </div>
 
                 <div
-                  onClick={() => showBlockInfo(blockNames.DONATE)}
+                  onClick={() => showBlockInfo(blockNames.MISSION)}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
-                    {blockNames.DONATE}
+                    {blockNames.MISSION}
                   </p>
                 </div>
               </div>
@@ -857,7 +857,7 @@ function StartPage({ defaultContentKey = null }) {
             className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             {!radioPlayerVisible ? (
-              <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
+              <p className="mt-4 flex h-full w-full justify-end rounded-2xl p-5 text-white">
                 {blockNames.RADIO_PLAYER}
               </p>
             ) : (
@@ -865,11 +865,11 @@ function StartPage({ defaultContentKey = null }) {
             )}
           </div>
           <div
-            onClick={() => showBlockInfo(blockNames.DONATE)}
+            onClick={() => showBlockInfo(blockNames.MISSION)}
             className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
-              {blockNames.DONATE}
+            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
+              {blockNames.MISSION}
             </p>
           </div>
           <div

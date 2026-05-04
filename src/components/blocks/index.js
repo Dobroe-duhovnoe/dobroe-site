@@ -5,7 +5,7 @@ export { default as HowToFindUsBlock } from './HowToFindUsBlock';
 export { default as FriendsBlock } from './FriendsBlock';
 export { default as AddictionHelpBlock } from './AddictionHelpBlock';
 export { default as RadioPlayerBlock } from './RadioPlayerBlock';
-export { default as DonateBlock } from './DonateBlock';
+export { default as MissionBlock } from './MissionBlock';
 export { default as LegalInfoBlock } from './LegalInfoBlock';
 export { default as PrayerRequestBlock } from './PrayerRequestBlock';
 export { default as ListenAndWatchBlock } from './ListenAndWatchBlock';
