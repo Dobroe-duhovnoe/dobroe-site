@@ -611,13 +611,7 @@ function StartPage({ defaultContentKey = null }) {
                   onClick={toggleRadioPlayer}
                   className="blue-two-layers relative h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
-                  {!radioPlayerVisible ? (
-                    <p className="flex h-full items-center rounded-2xl p-4 text-sm text-white">
-                      {blockNames.RADIO_PLAYER}
-                    </p>
-                  ) : (
-                    <RadioPlayer onClose={closeRadioPlayer} />
-                  )}
+                  <RadioPlayer onClose={closeRadioPlayer} />
                 </div>
 
                 <div
