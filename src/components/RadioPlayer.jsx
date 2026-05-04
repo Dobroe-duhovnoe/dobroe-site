@@ -1,22 +1,17 @@
 import React from 'react';
+import muteIcon from '../assets/mute.svg';
+import volumeIcon from '../assets/volume.svg';
 import { useRadioPlayer } from '../contexts/radioPlayerContext';
 
 const RadioPlayer = ({ onClose }) => {
   const { isPlaying, togglePlay, volume, adjustVolume } = useRadioPlayer();
   return (
-    <div className="relative flex h-full flex-col items-center justify-center p-2 md:p-3">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-        className="absolute top-2 right-3 cursor-pointer text-lg font-bold text-white hover:text-gray-300"
-      >
-        ✕
-      </button>
+    <div className="relative flex h-full flex-col items-center justify-center gap-2 p-2 md:p-3">
+      <h2 className="text-xl font-bold text-white">Радио RuWorship</h2>
 
       <div className="flex flex-col items-center gap-2">
         <button
+          type="button"
           onClick={(e) => {
             e.stopPropagation();
             togglePlay();
@@ -40,9 +35,16 @@ const RadioPlayer = ({ onClose }) => {
               e.stopPropagation();
               adjustVolume(volume - 0.1);
             }}
-            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
+            className="flex cursor-pointer items-center justify-center text-white hover:opacity-80"
+            type="button"
+            aria-label="Тише"
           >
-            🔉
+            <img
+              src={muteIcon}
+              alt=""
+              className="h-4 w-4 shrink-0 opacity-90 md:h-5 md:w-5"
+              aria-hidden
+            />
           </button>
           <div
             className="group relative h-6 w-16 cursor-pointer md:w-20"
@@ -68,9 +70,16 @@ const RadioPlayer = ({ onClose }) => {
               e.stopPropagation();
               adjustVolume(volume + 0.1);
             }}
-            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
+            className="flex cursor-pointer items-center justify-center text-white hover:opacity-80"
+            type="button"
+            aria-label="Громче"
           >
-            🔊
+            <img
+              src={volumeIcon}
+              alt=""
+              className="h-4 w-4 shrink-0 opacity-90 md:h-5 md:w-5"
+              aria-hidden
+            />
           </button>
         </div>
       </div>
