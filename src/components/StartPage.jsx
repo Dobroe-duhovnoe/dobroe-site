@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useRadioPlayer } from '../contexts/radioPlayerContext';
 import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
 import mainBanner from '../assets/main-banner.png';
@@ -15,10 +14,10 @@ import {
   AboutUsBlock,
   DailyMessageBlock,
   HowToFindUsBlock,
-  PartnersBlock,
+  FriendsBlock,
   AddictionHelpBlock,
   RadioPlayerBlock,
-  DonateBlock,
+  MissionBlock,
   LegalInfoBlock,
   PrayerRequestBlock,
   ListenAndWatchBlock,
@@ -31,11 +30,12 @@ const blockNames = {
   ABOUT_US: 'О НАС',
   DAILY_MESSAGE: 'ЕЖЕДНЕВНОЕ ПОСЛАНИЕ',
   HOW_TO_FIND_US: 'КАК НАС НАЙТИ',
-  PARTNERS: 'ПАРТНЁРЫ',
-  ADDICTION_HELP: 'ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
+  FRIENDS: 'НАШИ ДРУЗЬЯ',
+  ADDICTION_HELP:
+    'БЕСПЛАТНАЯ ПОМОЩЬ ОТ ЗАВИСИМОСТИ (НАРКО, АЛКО, ИГРОВОЙ И Т.Д.)',
   SOCIAL_MEDIA: 'СОЦИАЛЬНЫЕ СЕТИ',
   RADIO_PLAYER: 'РАДИОПЛЕЕР',
-  DONATE: 'ПОЖЕРТВОВАТЬ',
+  MISSION: 'МИССИЯ «ДОБРОЕ ДУХОВНОЕ»',
   LEGAL_INFO: 'ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ',
   PRAYER_REQUEST: 'МЫ ХОТИМ ПОМОЛИТЬСЯ ЗА ВАС',
   HOW_GOD_TREATS_YOU: 'КАК БОГ ОТНОСИТСЯ К ТЕБЕ',
@@ -60,25 +60,25 @@ const META_DATA = {
     description:
       'Найдите адреса наших центров, время служений и контактную информацию. Мы всегда рады видеть вас!',
   },
-  [blockNames.PARTNERS]: {
-    title: 'Партнёры - Доброе Духовное',
+  [blockNames.FRIENDS]: {
+    title: 'Наши друзья - Доброе Духовное',
     description:
-      'Познакомьтесь с нашими партнёрами, которые помогают нам в служении и распространении благой вести.',
+      'Познакомьтесь с нашими друзьями, которые помогают нам в служении и распространении благой вести.',
   },
   [blockNames.ADDICTION_HELP]: {
     title: 'Помощь зависимым - Доброе Духовное',
     description:
-      'Мы предлагаем помощь и поддержку людям, страдающим от наркотической, алкогольной и других зависимостей.',
+      'Бесплатная помощь и поддержка людям, страдающим от наркотической, алкогольной и других зависимостей.',
   },
   [blockNames.RADIO_PLAYER]: {
     title: 'Радиоплеер - Прямой эфир Доброго Духовного Радио',
     description:
       'Слушайте прямой эфир нашего радио, где бы вы ни находились. Духовная музыка, проповеди и ободряющие программы.',
   },
-  [blockNames.DONATE]: {
-    title: 'Пожертвовать - Поддержите наше служение',
+  [blockNames.MISSION]: {
+    title: 'Миссия «Доброе Духовное» - Доброе Духовное',
     description:
-      'Ваша поддержка помогает нам продолжать наше служение. Узнайте, как вы можете сделать пожертвование.',
+      'Узнайте о миссии служения «Доброе Духовное» и о том, как мы несём благую весть людям.',
   },
   [blockNames.LEGAL_INFO]: {
     title: 'Юридическая информация - Доброе Духовное',
@@ -122,11 +122,11 @@ const blockUrlKeys = {
   [blockNames.ABOUT_US]: 'about',
   [blockNames.DAILY_MESSAGE]: 'daily-message',
   [blockNames.HOW_TO_FIND_US]: 'how-to-find-us',
-  [blockNames.PARTNERS]: 'partners',
+  [blockNames.FRIENDS]: 'partners',
   [blockNames.ADDICTION_HELP]: 'addiction-help',
   [blockNames.SOCIAL_MEDIA]: 'social-media',
   [blockNames.RADIO_PLAYER]: 'radio-player',
-  [blockNames.DONATE]: 'donate',
+  [blockNames.MISSION]: 'mission',
   [blockNames.LEGAL_INFO]: 'legal-info',
   [blockNames.PRAYER_REQUEST]: 'prayer-request',
   [blockNames.HOW_GOD_TREATS_YOU]: 'how-god-treats-you',
@@ -155,7 +155,7 @@ const Login = ({ handleClick }) => (
   </div>
 );
 const Logo = () => <div>Logo Component</div>;
-const Partners = () => <div>Partners Component</div>;
+const Friends = () => <div>Friends Component</div>;
 const PasswordRecovery = () => <div>Password Recovery Component</div>;
 const Reviews = () => <div>Reviews Component</div>;
 
@@ -256,18 +256,8 @@ function StartPage({ defaultContentKey = null }) {
     }
   };
 
-  // Функции для управления радиоплеером
-  const { isPlaying, togglePlay } = useRadioPlayer();
-
   const toggleRadioPlayer = () => {
     setRadioPlayerVisible(!radioPlayerVisible);
-  };
-
-  const closeRadioPlayer = () => {
-    if (isPlaying) {
-      togglePlay();
-    }
-    setRadioPlayerVisible(false);
   };
 
   // Объект для переключения между компонентами
@@ -292,8 +282,8 @@ function StartPage({ defaultContentKey = null }) {
         hideBlockInfo={hideBlockInfo}
       />
     ),
-    [blockNames.PARTNERS]: (
-      <PartnersBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+    [blockNames.FRIENDS]: (
+      <FriendsBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
     [blockNames.ADDICTION_HELP]: (
       <AddictionHelpBlock
@@ -304,8 +294,8 @@ function StartPage({ defaultContentKey = null }) {
     [blockNames.RADIO_PLAYER]: (
       <RadioPlayerBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
-    [blockNames.DONATE]: (
-      <DonateBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
+    [blockNames.MISSION]: (
+      <MissionBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
     ),
     [blockNames.LEGAL_INFO]: (
       <LegalInfoBlock blockNames={blockNames} hideBlockInfo={hideBlockInfo} />
@@ -366,7 +356,7 @@ function StartPage({ defaultContentKey = null }) {
       </div>
     ),
     updates: <AboutVersion isStartPage={true} />,
-    partners: <Partners />,
+    partners: <Friends />,
     intro: <LevelIntro />,
     reviews: <Reviews />,
     howItWork: <HowItWorks />,
@@ -528,11 +518,11 @@ function StartPage({ defaultContentKey = null }) {
                 </div>
 
                 <div
-                  onClick={() => showBlockInfo(blockNames.PARTNERS)}
+                  onClick={() => showBlockInfo(blockNames.FRIENDS)}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
-                    {blockNames.PARTNERS}
+                    {blockNames.FRIENDS}
                   </p>
                 </div>
               </div>
@@ -610,21 +600,15 @@ function StartPage({ defaultContentKey = null }) {
                   onClick={toggleRadioPlayer}
                   className="blue-two-layers relative h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
-                  {!radioPlayerVisible ? (
-                    <p className="flex h-full items-center rounded-2xl p-4 text-sm text-white">
-                      {blockNames.RADIO_PLAYER}
-                    </p>
-                  ) : (
-                    <RadioPlayer onClose={closeRadioPlayer} />
-                  )}
+                  <RadioPlayer />
                 </div>
 
                 <div
-                  onClick={() => showBlockInfo(blockNames.DONATE)}
+                  onClick={() => showBlockInfo(blockNames.MISSION)}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
-                    {blockNames.DONATE}
+                    {blockNames.MISSION}
                   </p>
                 </div>
               </div>
@@ -678,11 +662,11 @@ function StartPage({ defaultContentKey = null }) {
             </p>
           </div>
           <div
-            onClick={() => showBlockInfo(blockNames.PARTNERS)}
+            onClick={() => showBlockInfo(blockNames.FRIENDS)}
             className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
-              {blockNames.PARTNERS}
+              {blockNames.FRIENDS}
             </p>
           </div>
         </aside>
@@ -855,20 +839,14 @@ function StartPage({ defaultContentKey = null }) {
             onClick={toggleRadioPlayer}
             className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
-            {!radioPlayerVisible ? (
-              <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
-                {blockNames.RADIO_PLAYER}
-              </p>
-            ) : (
-              <RadioPlayer onClose={closeRadioPlayer} />
-            )}
+            <RadioPlayer />
           </div>
           <div
-            onClick={() => showBlockInfo(blockNames.DONATE)}
+            onClick={() => showBlockInfo(blockNames.MISSION)}
             className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
-            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
-              {blockNames.DONATE}
+            <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
+              {blockNames.MISSION}
             </p>
           </div>
           <div

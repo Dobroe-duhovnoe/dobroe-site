@@ -1,83 +1,56 @@
 import React from 'react';
 import { useRadioPlayer } from '../contexts/radioPlayerContext';
+import VolumeSlider from './VolumeSlider';
 
-const RadioPlayer = ({ onClose }) => {
+const RadioPlayer = () => {
   const { isPlaying, togglePlay, volume, adjustVolume } = useRadioPlayer();
   return (
-    <div className="relative flex h-full flex-col items-center justify-center p-2 md:p-3">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-        className="absolute top-2 right-3 cursor-pointer text-lg font-bold text-white hover:text-gray-300"
-      >
-        ✕
-      </button>
+    <div className="relative flex h-full w-full min-w-0 flex-col items-center justify-center gap-2 p-2 md:p-3">
+      <h2 className="w-full min-w-0 text-center text-xs font-bold text-white md:text-base">
+        <span className="hidden md:inline">Радио</span> <span>RuWorship</span>
+      </h2>
 
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex w-full min-w-0 flex-col items-center gap-2">
         <button
+          type="button"
+          aria-label={isPlaying ? 'Пауза' : 'Воспроизведение'}
           onClick={(e) => {
             e.stopPropagation();
             togglePlay();
           }}
-          className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white transition-colors hover:bg-gray-200 md:h-10 md:w-10"
+          className="flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[var(--color-button-primary)] transition-colors hover:opacity-90 md:h-[52px] md:w-[52px]"
         >
           {isPlaying ? (
-            <span className="-mt-0.5 text-lg text-[var(--color-primary-dark)]">
-              ⏸
-            </span>
+            <span
+              className="block h-[18px] w-[18px] rounded-sm bg-white md:h-[24px] md:w-[24px] md:rounded-lg"
+              aria-hidden
+            />
           ) : (
-            <span className="ml-0.5 text-lg text-[var(--color-primary-dark)]">
-              ▶
-            </span>
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              aria-hidden
+              fill="currentColor"
+            >
+              <path
+                d="M20.4086 9.35258c2.1219 1.15392 2.1219 4.14092 0 5.29482L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329c0 -2.30922 2.53435 -3.76888 4.59661 -2.64742l12.81199 6.9671Z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+            </svg>
           )}
         </button>
 
-        <div className="flex w-full items-center gap-1">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              adjustVolume(volume - 0.1);
-            }}
-            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
-          >
-            🔉
-          </button>
-          <div
-            className="group relative h-6 w-16 cursor-pointer md:w-20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={volume * 100}
-              onChange={(e) => {
-                const newVolume = Number(e.target.value) / 100;
-                adjustVolume(newVolume);
-              }}
-              className="h-2 w-full cursor-pointer appearance-none rounded bg-white"
-              style={{
-                background: `linear-gradient(to right, var(--color-accent-yellow) 0%, var(--color-accent-yellow) ${volume * 100}%, white ${volume * 100}%, white 100%)`,
-              }}
-            />
-          </div>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              adjustVolume(volume + 0.1);
-            }}
-            className="cursor-pointer text-xs text-white hover:text-gray-200 md:text-sm"
-          >
-            🔊
-          </button>
+        <div className="flex w-full min-w-0 justify-center px-2 pt-0 pb-2 sm:px-5 sm:pb-4">
+          <VolumeSlider
+            value={volume}
+            onChange={adjustVolume}
+            ariaLabel="Громкость радио"
+          />
         </div>
       </div>
-
-      <p className="mb-1 text-center text-xs text-white md:mb-2 md:text-sm">
-        RuWorship
-      </p>
     </div>
   );
 };
