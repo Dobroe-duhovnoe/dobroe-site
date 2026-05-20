@@ -224,10 +224,15 @@ function StartPage({ defaultContentKey = null }) {
   useEffect(() => {
     const updateMetaTags = (title, description) => {
       document.title = title;
-      const descriptionTag = document.querySelector('meta[name="description"]');
-      if (descriptionTag) {
-        descriptionTag.setAttribute('content', description);
-      }
+
+      const setMeta = (selector, content) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', content);
+      };
+
+      setMeta('meta[name="description"]', description);
+      setMeta('meta[property="og:title"]', title);
+      setMeta('meta[property="og:description"]', description);
     };
 
     const metaData = META_DATA[selectedBlock] || META_DATA.DEFAULT;
