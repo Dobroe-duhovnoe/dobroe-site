@@ -113,7 +113,7 @@ const META_DATA = {
   DEFAULT: {
     title: 'Протестантская церковь пятидесятников в Ростове-на-Дону',
     description:
-      'Церковь пятидесятников «Доброе Духовное» в Ростове-на-Дону. Богослужение каждое воскресенье в 13:00 по адресу: ул. Тургеневская, 39. Звоните: +7 938 118 12 12. Приходите — мы рады вам!',
+      'Церковь пятидесятников «Доброе Духовное» в Ростове-на-Дону. Богослужение каждое воскресенье в 13:00 по адресу: ул. Тургеневская, 39. Приходите — мы рады вам!',
   },
 };
 
@@ -418,7 +418,7 @@ function StartPage({ defaultContentKey = null }) {
           ) : (
             <>
               <Link
-                href="/"
+                href="/how-to-find-us"
                 onClick={(e) => {
                   e.preventDefault();
                   showBlockInfo(blockNames.HOW_TO_FIND_US);
@@ -676,7 +676,7 @@ function StartPage({ defaultContentKey = null }) {
           ) : (
             <>
               <Link
-                href="/"
+                href="/how-to-find-us"
                 onClick={(e) => {
                   e.preventDefault();
                   showBlockInfo(blockNames.HOW_TO_FIND_US);
