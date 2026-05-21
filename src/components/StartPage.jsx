@@ -446,7 +446,10 @@ function StartPage({ defaultContentKey = null }) {
               <div className="grid grid-cols-1 gap-4">
                 <a
                   href="/how-god-treats-you"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.HOW_GOD_TREATS_YOU); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.HOW_GOD_TREATS_YOU);
+                  }}
                   className="flex h-48 cursor-pointer rounded-xl bg-cover bg-center bg-no-repeat p-3 grayscale hover:opacity-90 hover:grayscale-0"
                   style={{
                     backgroundImage: `url(${howGodTreatsYou})`,
@@ -459,7 +462,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/what-we-believe"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.WHAT_WE_BELIEVE); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.WHAT_WE_BELIEVE);
+                  }}
                   className="flex h-48 cursor-pointer rounded-xl bg-cover bg-center bg-no-repeat p-3 grayscale hover:opacity-90 hover:grayscale-0"
                   style={{
                     backgroundImage: `url(${whatWeBelieve})`,
@@ -472,7 +478,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/listen-and-watch"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.LISTEN_AND_WATCH); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.LISTEN_AND_WATCH);
+                  }}
                   className="flex h-48 cursor-pointer rounded-xl bg-cover bg-center bg-no-repeat p-3 grayscale hover:opacity-90 hover:grayscale-0"
                   style={{
                     backgroundImage: `url(${listenAndWatch})`,
@@ -485,7 +494,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/pastor"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.PASTOR); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.PASTOR);
+                  }}
                   className="flex h-48 cursor-pointer rounded-xl bg-cover bg-center bg-no-repeat p-3 grayscale hover:opacity-90 hover:grayscale-0"
                   style={{
                     backgroundImage: `url(${pastor})`,
@@ -500,7 +512,10 @@ function StartPage({ defaultContentKey = null }) {
               <div className="grid grid-cols-2 gap-4">
                 <a
                   href="/about"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.ABOUT_US); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.ABOUT_US);
+                  }}
                   className="h-32 cursor-pointer rounded-xl bg-[var(--color-primary-light)] text-left text-[var(--color-primary-dark)] hover:opacity-80"
                 >
                   <p className="flex h-full items-center rounded-xl p-3 text-sm">
@@ -510,7 +525,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/daily-message"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.DAILY_MESSAGE); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.DAILY_MESSAGE);
+                  }}
                   className="h-32 cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] text-left text-[var(--color-primary-dark)] transition-colors hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-xl p-3 text-sm">
@@ -520,7 +538,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/how-to-find-us"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.HOW_TO_FIND_US); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.HOW_TO_FIND_US);
+                  }}
                   className="blue-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-white">
@@ -530,7 +551,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/partners"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.FRIENDS); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.FRIENDS);
+                  }}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
@@ -542,7 +566,10 @@ function StartPage({ defaultContentKey = null }) {
               <div className="grid grid-cols-2 gap-4">
                 <a
                   href="/prayer-request"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.PRAYER_REQUEST); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.PRAYER_REQUEST);
+                  }}
                   className="h-32 cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
@@ -552,7 +579,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/addiction-help"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.ADDICTION_HELP); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.ADDICTION_HELP);
+                  }}
                   className="h-32 cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
@@ -612,14 +642,17 @@ function StartPage({ defaultContentKey = null }) {
               <div className="grid grid-cols-2 gap-4">
                 <div
                   onClick={toggleRadioPlayer}
-                  className="blue-two-layers relative h-32 cursor-pointer rounded-2xl hover:opacity-90"
+                  className="blue-two-layers relative h-32 cursor-pointer rounded-2xl"
                 >
                   <RadioPlayer />
                 </div>
 
                 <a
                   href="/mission"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.MISSION); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.MISSION);
+                  }}
                   className="white-gray-two-layers h-32 cursor-pointer rounded-2xl hover:opacity-90"
                 >
                   <p className="flex h-full items-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
@@ -630,7 +663,10 @@ function StartPage({ defaultContentKey = null }) {
 
               <a
                 href="/legal-info"
-                onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.LEGAL_INFO); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  showBlockInfo(blockNames.LEGAL_INFO);
+                }}
                 className="h-12 cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
               >
                 <p className="flex h-full items-center justify-center rounded-2xl p-4 text-sm text-[var(--color-primary-dark)]">
@@ -657,14 +693,20 @@ function StartPage({ defaultContentKey = null }) {
 
           <a
             href="/about"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.ABOUT_US); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.ABOUT_US);
+            }}
             className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] text-left text-[var(--color-primary-dark)] hover:opacity-80"
           >
             <p className="mt-4 flex rounded-2xl p-5">{blockNames.ABOUT_US}</p>
           </a>
           <a
             href="/daily-message"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.DAILY_MESSAGE); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.DAILY_MESSAGE);
+            }}
             className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] text-left text-[var(--color-primary-dark)] transition-colors hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5">
@@ -673,7 +715,10 @@ function StartPage({ defaultContentKey = null }) {
           </a>
           <a
             href="/how-to-find-us"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.HOW_TO_FIND_US); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.HOW_TO_FIND_US);
+            }}
             className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
@@ -682,7 +727,10 @@ function StartPage({ defaultContentKey = null }) {
           </a>
           <a
             href="/partners"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.FRIENDS); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.FRIENDS);
+            }}
             className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
@@ -722,7 +770,10 @@ function StartPage({ defaultContentKey = null }) {
               >
                 <a
                   href="/how-god-treats-you"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.HOW_GOD_TREATS_YOU); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.HOW_GOD_TREATS_YOU);
+                  }}
                   className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                   style={{
                     backgroundImage: `url(${howGodTreatsYou})`,
@@ -734,7 +785,10 @@ function StartPage({ defaultContentKey = null }) {
                 </a>
                 <a
                   href="/what-we-believe"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.WHAT_WE_BELIEVE); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.WHAT_WE_BELIEVE);
+                  }}
                   className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                   style={{
                     backgroundImage: `url(${whatWeBelieve})`,
@@ -747,7 +801,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/listen-and-watch"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.LISTEN_AND_WATCH); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.LISTEN_AND_WATCH);
+                  }}
                   className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                   style={{
                     backgroundImage: `url(${listenAndWatch})`,
@@ -760,7 +817,10 @@ function StartPage({ defaultContentKey = null }) {
 
                 <a
                   href="/pastor"
-                  onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.PASTOR); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showBlockInfo(blockNames.PASTOR);
+                  }}
                   className="flex h-full cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat p-5 grayscale hover:opacity-90 hover:grayscale-0 lg:p-7"
                   style={{
                     backgroundImage: `url(${pastor})`,
@@ -794,7 +854,10 @@ function StartPage({ defaultContentKey = null }) {
         <aside className="flex w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pl-3">
           <a
             href="/prayer-request"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.PRAYER_REQUEST); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.PRAYER_REQUEST);
+            }}
             className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="w-3/4 p-5 text-right text-[var(--color-primary-dark)] lg:w-2/3">
@@ -803,7 +866,10 @@ function StartPage({ defaultContentKey = null }) {
           </a>
           <a
             href="/addiction-help"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.ADDICTION_HELP); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.ADDICTION_HELP);
+            }}
             className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
           >
             <p className="w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
@@ -863,13 +929,16 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={toggleRadioPlayer}
-            className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl"
           >
             <RadioPlayer />
           </div>
           <a
             href="/mission"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.MISSION); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.MISSION);
+            }}
             className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
@@ -878,7 +947,10 @@ function StartPage({ defaultContentKey = null }) {
           </a>
           <a
             href="/legal-info"
-            onClick={(e) => { e.preventDefault(); showBlockInfo(blockNames.LEGAL_INFO); }}
+            onClick={(e) => {
+              e.preventDefault();
+              showBlockInfo(blockNames.LEGAL_INFO);
+            }}
             className="h-[7%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
