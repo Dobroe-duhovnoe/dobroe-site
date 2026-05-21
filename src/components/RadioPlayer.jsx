@@ -7,7 +7,16 @@ const RadioPlayer = () => {
   return (
     <div className="relative flex h-full w-full min-w-0 flex-col items-center justify-center gap-2 p-2 md:p-3">
       <h2 className="w-full min-w-0 text-center text-xs font-bold text-white md:text-base">
-        <span className="hidden md:inline">Радио</span> <span>RuWorship</span>
+        <span className="hidden md:inline">Радио </span>
+        <a
+          href="https://www.slavagospodu.ru/"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
+          className="text-white no-underline hover:text-white"
+        >
+          RuWorship
+        </a>
       </h2>
 
       <div className="flex w-full min-w-0 flex-col items-center gap-2">

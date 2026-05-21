@@ -642,7 +642,7 @@ function StartPage({ defaultContentKey = null }) {
               <div className="grid grid-cols-2 gap-4">
                 <div
                   onClick={toggleRadioPlayer}
-                  className="blue-two-layers relative h-32 cursor-pointer rounded-2xl hover:opacity-90"
+                  className="blue-two-layers relative h-32 cursor-pointer rounded-2xl"
                 >
                   <RadioPlayer />
                 </div>
@@ -929,7 +929,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={toggleRadioPlayer}
-            className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl"
           >
             <RadioPlayer />
           </div>
