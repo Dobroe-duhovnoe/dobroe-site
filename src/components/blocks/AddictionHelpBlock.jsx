@@ -11,6 +11,9 @@ const AddictionHelpBlock = ({ hideBlockInfo }) => {
           алко, игровой и т.д.), позвоните по телефону: +7 928 616 58 28
         </p>
         <p>Или напишите нам через форму обратной связи ниже.</p>
+        <p className="text-sm text-[var(--color-primary-dark)]/65">
+          Разговор, консультации и сопровождение для вас бесплатны.
+        </p>
       </div>
 
       <ContactForm type="dependents" />
