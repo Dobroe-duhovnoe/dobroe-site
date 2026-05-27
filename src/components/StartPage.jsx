@@ -686,7 +686,7 @@ function StartPage({ defaultContentKey = null }) {
               hideBlockInfo();
               window.history.pushState({}, '', '/');
             }}
-            className="flex shrink-0 cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50 [flex-basis:14%]"
+            className="flex shrink-0 [flex-basis:14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
           >
             <img src={logo} alt="Логотип" className="w-40 lg:w-52" />
           </div>
@@ -752,7 +752,7 @@ function StartPage({ defaultContentKey = null }) {
                   e.preventDefault();
                   showBlockInfo(blockNames.HOW_TO_FIND_US);
                 }}
-                className="flex w-full shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white [flex-basis:14%] lg:p-7"
+                className="flex w-full shrink-0 [flex-basis:14%] cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
                 style={{
                   backgroundImage: `url(${mainBanner})`,
                 }}
@@ -860,7 +860,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.PRAYER_REQUEST);
             }}
-            className="flex shrink-0 cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90 [flex-basis:14%]"
+            className="flex shrink-0 [flex-basis:14%] cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="w-3/4 p-5 text-right text-[var(--color-primary-dark)] lg:w-2/3">
               {blockNames.PRAYER_REQUEST}
@@ -872,14 +872,14 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.ADDICTION_HELP);
             }}
-            className="min-h-0 flex-1 cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
+            className="flex min-h-0 flex-1 cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
           >
             <p className="w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
               {blockNames.ADDICTION_HELP}
             </p>
           </a>
 
-          <div className="shrink-0 rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90 [flex-basis:7%]">
+          <div className="shrink-0 [flex-basis:7%] rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90">
             <div className="flex h-full w-full items-center justify-center gap-4 p-3">
               <a
                 href="https://youtube.com/@dobroeduhovnoe"
@@ -953,7 +953,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.LEGAL_INFO);
             }}
-            className="shrink-0 cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90 [flex-basis:7%]"
+            className="shrink-0 [flex-basis:7%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
               {blockNames.LEGAL_INFO}
