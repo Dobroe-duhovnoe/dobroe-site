@@ -764,7 +764,7 @@ function StartPage({ defaultContentKey = null }) {
                 </div>
               </Link>
               <div
-                className={`grid flex-1 grid-cols-2 gap-4 text-2xl leading-tight transition-opacity duration-300 xl:gap-7 ${
+                className={`grid flex-1 grid-cols-2 gap-4 text-lg leading-tight transition-opacity duration-300 lg:text-2xl xl:gap-7 ${
                   contentKey ? 'pointer-events-none opacity-0' : 'opacity-100'
                 }`}
               >
