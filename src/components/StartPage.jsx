@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
 import mainBanner from '../assets/main-banner.png';
@@ -215,11 +215,19 @@ const contentRoutes = {
   logo: 'about',
 };
 
+const isMobileViewport = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(max-width: 767px)').matches;
+
 function StartPage({ defaultContentKey = null }) {
   const router = useRouter();
   const [contentKey, setContentKey] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
+  const mobileScrollYRef = useRef(0);
+  const prevSelectedBlockRef = useRef(null);
+  const selectedBlockRef = useRef(null);
+  selectedBlockRef.current = selectedBlock;
 
   useEffect(() => {
     const updateMetaTags = (title, description) => {
@@ -241,6 +249,9 @@ function StartPage({ defaultContentKey = null }) {
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
     if (selectedBlock !== blockType) {
+      if (isMobileViewport() && selectedBlock === null) {
+        mobileScrollYRef.current = window.scrollY;
+      }
       setSelectedBlock(blockType);
       // Обновляем URL для переключения страниц
       window.history.pushState(
@@ -379,10 +390,31 @@ function StartPage({ defaultContentKey = null }) {
     }
   };
 
+  useEffect(() => {
+    if (!isMobileViewport()) return;
+
+    const prev = prevSelectedBlockRef.current;
+    prevSelectedBlockRef.current = selectedBlock;
+
+    if (selectedBlock && !prev) {
+      window.scrollTo(0, 0);
+    } else if (!selectedBlock && prev) {
+      const scrollY = mobileScrollYRef.current;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.scrollTo(0, scrollY);
+        });
+      });
+    }
+  }, [selectedBlock]);
+
   // Обработка навигации по истории браузера
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state && event.state.block) {
+        if (isMobileViewport() && selectedBlockRef.current === null) {
+          mobileScrollYRef.current = window.scrollY;
+        }
         setSelectedBlock(event.state.block);
       } else {
         setSelectedBlock(null);
@@ -679,14 +711,14 @@ function StartPage({ defaultContentKey = null }) {
       </div>
 
       {/* Desktop Layout */}
-      <div className="relative hidden h-[93vh] w-full text-sm font-semibold md:flex lg:text-base xl:text-lg">
-        <aside className="flex h-full w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pr-3">
+      <div className="relative hidden h-[93vh] w-full items-stretch text-sm font-semibold md:flex lg:text-base xl:text-lg">
+        <aside className="flex h-full min-h-0 w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pr-3">
           <div
             onClick={() => {
               hideBlockInfo();
               window.history.pushState({}, '', '/');
             }}
-            className="flex h-[14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
+            className="flex shrink-0 [flex-basis:14%] cursor-pointer items-center justify-center rounded-2xl bg-white transition-colors hover:bg-gray-50"
           >
             <img src={logo} alt="Логотип" className="w-40 lg:w-52" />
           </div>
@@ -697,7 +729,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.ABOUT_US);
             }}
-            className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] text-left text-[var(--color-primary-dark)] hover:opacity-80"
+            className="min-h-0 flex-1 cursor-pointer rounded-2xl bg-[var(--color-primary-light)] text-left text-[var(--color-primary-dark)] hover:opacity-80"
           >
             <p className="mt-4 flex rounded-2xl p-5">{blockNames.ABOUT_US}</p>
           </a>
@@ -707,7 +739,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.DAILY_MESSAGE);
             }}
-            className="h-[18%] cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] text-left text-[var(--color-primary-dark)] transition-colors hover:opacity-90"
+            className="min-h-0 flex-1 cursor-pointer rounded-2xl bg-[var(--color-accent-orange)] text-left text-[var(--color-primary-dark)] transition-colors hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5">
               {blockNames.DAILY_MESSAGE}
@@ -719,7 +751,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.HOW_TO_FIND_US);
             }}
-            className="blue-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="blue-two-layers min-h-0 flex-1 cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-white">
               {blockNames.HOW_TO_FIND_US}
@@ -731,7 +763,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.FRIENDS);
             }}
-            className="white-gray-two-layers h-[18%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="white-gray-two-layers min-h-0 flex-1 cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-[var(--color-primary-dark)]">
               {blockNames.FRIENDS}
@@ -739,9 +771,11 @@ function StartPage({ defaultContentKey = null }) {
           </a>
         </aside>
 
-        <section className="flex h-full w-1/2 flex-col gap-7 px-3 leading-tight text-white">
+        <section className="flex h-full min-h-0 w-1/2 flex-col gap-4 px-3 leading-tight text-white xl:gap-7">
           {selectedBlock ? (
-            blockComponents[selectedBlock]
+            <div className="flex min-h-0 flex-1 flex-col">
+              {blockComponents[selectedBlock]}
+            </div>
           ) : (
             <>
               <Link
@@ -750,7 +784,7 @@ function StartPage({ defaultContentKey = null }) {
                   e.preventDefault();
                   showBlockInfo(blockNames.HOW_TO_FIND_US);
                 }}
-                className="flex h-[14%] w-full cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
+                className="flex w-full shrink-0 [flex-basis:14%] cursor-pointer items-center justify-center overflow-hidden rounded-2xl bg-cover bg-center bg-no-repeat p-5 text-white lg:p-7"
                 style={{
                   backgroundImage: `url(${mainBanner})`,
                 }}
@@ -764,7 +798,7 @@ function StartPage({ defaultContentKey = null }) {
                 </div>
               </Link>
               <div
-                className={`grid flex-1 grid-cols-2 gap-4 text-2xl leading-tight transition-opacity duration-300 xl:gap-7 ${
+                className={`grid min-h-0 flex-1 grid-cols-2 gap-4 text-lg leading-tight transition-opacity duration-300 lg:text-2xl xl:gap-7 ${
                   contentKey ? 'pointer-events-none opacity-0' : 'opacity-100'
                 }`}
               >
@@ -851,14 +885,14 @@ function StartPage({ defaultContentKey = null }) {
           </div>
         </section>
 
-        <aside className="flex w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pl-3">
+        <aside className="flex h-full min-h-0 w-1/4 flex-col gap-4 leading-tight xl:gap-7 xl:pl-3">
           <a
             href="/prayer-request"
             onClick={(e) => {
               e.preventDefault();
               showBlockInfo(blockNames.PRAYER_REQUEST);
             }}
-            className="flex h-[14%] cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
+            className="flex shrink-0 [flex-basis:14%] cursor-pointer justify-end rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="w-3/4 p-5 text-right text-[var(--color-primary-dark)] lg:w-2/3">
               {blockNames.PRAYER_REQUEST}
@@ -870,14 +904,14 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.ADDICTION_HELP);
             }}
-            className="flex h-[19%] cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
+            className="flex min-h-0 flex-1 cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
           >
-            <p className="w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
+            <p className="addiction-help-tile w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
               {blockNames.ADDICTION_HELP}
             </p>
           </a>
 
-          <div className="h-[7%] rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90">
+          <div className="shrink-0 [flex-basis:7%] rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90">
             <div className="flex h-full w-full items-center justify-center gap-4 p-3">
               <a
                 href="https://youtube.com/@dobroeduhovnoe"
@@ -929,7 +963,7 @@ function StartPage({ defaultContentKey = null }) {
           </div>
           <div
             onClick={toggleRadioPlayer}
-            className="blue-two-layers relative h-[19%] cursor-pointer rounded-2xl"
+            className="blue-two-layers relative min-h-0 flex-1 cursor-pointer rounded-2xl"
           >
             <RadioPlayer />
           </div>
@@ -939,7 +973,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.MISSION);
             }}
-            className="white-gray-two-layers h-[19%] cursor-pointer rounded-2xl hover:opacity-90"
+            className="white-gray-two-layers min-h-0 flex-1 cursor-pointer rounded-2xl hover:opacity-90"
           >
             <p className="mt-4 flex h-full w-full rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
               {blockNames.MISSION}
@@ -951,7 +985,7 @@ function StartPage({ defaultContentKey = null }) {
               e.preventDefault();
               showBlockInfo(blockNames.LEGAL_INFO);
             }}
-            className="h-[7%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
+            className="shrink-0 [flex-basis:7%] cursor-pointer rounded-2xl bg-[var(--color-primary-light)] hover:opacity-90"
           >
             <p className="flex h-full w-full items-center justify-center rounded-2xl p-5 text-right text-[var(--color-primary-dark)]">
               {blockNames.LEGAL_INFO}

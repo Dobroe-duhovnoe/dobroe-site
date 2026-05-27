@@ -461,13 +461,13 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
 
   return (
     <BaseBlock title="ОСНОВЫ ВЕРОУЧЕНИЯ" onClose={hideBlockInfo}>
-      <div className="flex flex-col text-left">
-        <p className="mb-6 text-lg text-[#023047]">
+      <div className="flex min-h-0 flex-1 flex-col text-left">
+        <p className="mb-6 shrink-0 text-lg text-[#023047]">
           Религиозной группы Христиан Веры Евангельской (пятидесятников)
           Служения «Доброе Духовное» г.Ростов-на-Дону
         </p>
 
-        <div className="mb-6 grid grid-cols-2 gap-2 text-xs md:grid-cols-4">
+        <div className="mb-6 grid shrink-0 grid-cols-2 gap-2 text-xs xl:grid-cols-4">
           {beliefSections.map((section) => (
             <button
               key={section.id}
@@ -483,7 +483,7 @@ const WhatWeBelieveBlock = ({ hideBlockInfo }) => {
           ))}
         </div>
 
-        <div className="max-h-96 flex-1 overflow-y-auto">
+        <div className="min-h-0 flex-1 overflow-y-auto">
           {selectedSection?.content}
         </div>
       </div>
