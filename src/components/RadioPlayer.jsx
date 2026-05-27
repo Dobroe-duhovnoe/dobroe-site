@@ -6,20 +6,20 @@ const RadioPlayer = () => {
   const { isPlaying, togglePlay, volume, adjustVolume } = useRadioPlayer();
   return (
     <div className="relative flex h-full w-full min-w-0 flex-col items-center justify-center gap-2 p-2 md:p-3">
-      <h2 className="w-full min-w-0 text-center text-xs font-bold text-white md:text-base">
-        <span className="hidden md:inline">Радио </span>
-        <a
-          href="https://www.slavagospodu.ru/"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          className="text-white no-underline hover:text-white"
-        >
-          RuWorship
-        </a>
-      </h2>
+      <div className="radio-player-header">
+        <h2 className="min-w-0 text-xs leading-tight font-bold text-white md:text-base">
+          Радио{' '}
+          <a
+            href="https://www.slavagospodu.ru/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-white no-underline hover:text-white"
+          >
+            RuWorship
+          </a>
+        </h2>
 
-      <div className="flex w-full min-w-0 flex-col items-center gap-2">
         <button
           type="button"
           aria-label={isPlaying ? 'Пауза' : 'Воспроизведение'}
@@ -27,19 +27,18 @@ const RadioPlayer = () => {
             e.stopPropagation();
             togglePlay();
           }}
-          className="flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full bg-[var(--color-button-primary)] transition-colors hover:opacity-90 md:h-[52px] md:w-[52px]"
+          className="radio-play-btn cursor-pointer rounded-full bg-[var(--color-button-primary)] transition-colors hover:opacity-90"
         >
           {isPlaying ? (
             <span
-              className="block h-[18px] w-[18px] rounded-sm bg-white md:h-[24px] md:w-[24px] md:rounded-lg"
+              className="radio-play-pause block rounded-sm bg-white"
               aria-hidden
             />
           ) : (
             <svg
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
+              className="radio-play-icon"
               aria-hidden
               fill="currentColor"
             >
@@ -51,14 +50,14 @@ const RadioPlayer = () => {
             </svg>
           )}
         </button>
+      </div>
 
-        <div className="flex w-full min-w-0 justify-center px-2 pt-0 pb-2 sm:px-5 sm:pb-4">
-          <VolumeSlider
-            value={volume}
-            onChange={adjustVolume}
-            ariaLabel="Громкость радио"
-          />
-        </div>
+      <div className="flex w-full min-w-0 justify-center px-2 pt-0 pb-2 sm:px-5 sm:pb-4">
+        <VolumeSlider
+          value={volume}
+          onChange={adjustVolume}
+          ariaLabel="Громкость радио"
+        />
       </div>
     </div>
   );

@@ -874,7 +874,7 @@ function StartPage({ defaultContentKey = null }) {
             }}
             className="flex min-h-0 flex-1 cursor-pointer justify-end rounded-2xl bg-[var(--color-accent-orange)] hover:opacity-90"
           >
-            <p className="w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
+            <p className="addiction-help-tile w-5/6 p-5 text-right text-[var(--color-primary-dark)] lg:w-3/4">
               {blockNames.ADDICTION_HELP}
             </p>
           </a>
