@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import RadioPlayer from './RadioPlayer';
 import logo from '../assets/logo.svg';
 import mainBanner from '../assets/main-banner.png';
@@ -215,11 +215,19 @@ const contentRoutes = {
   logo: 'about',
 };
 
+const isMobileViewport = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia('(max-width: 767px)').matches;
+
 function StartPage({ defaultContentKey = null }) {
   const router = useRouter();
   const [contentKey, setContentKey] = useState(null);
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [radioPlayerVisible, setRadioPlayerVisible] = useState(false);
+  const mobileScrollYRef = useRef(0);
+  const prevSelectedBlockRef = useRef(null);
+  const selectedBlockRef = useRef(null);
+  selectedBlockRef.current = selectedBlock;
 
   useEffect(() => {
     const updateMetaTags = (title, description) => {
@@ -241,6 +249,9 @@ function StartPage({ defaultContentKey = null }) {
   // Функции для управления блоками (объявляем здесь, чтобы они были доступны в компонентах)
   const showBlockInfo = (blockType) => {
     if (selectedBlock !== blockType) {
+      if (isMobileViewport() && selectedBlock === null) {
+        mobileScrollYRef.current = window.scrollY;
+      }
       setSelectedBlock(blockType);
       // Обновляем URL для переключения страниц
       window.history.pushState(
@@ -379,10 +390,31 @@ function StartPage({ defaultContentKey = null }) {
     }
   };
 
+  useEffect(() => {
+    if (!isMobileViewport()) return;
+
+    const prev = prevSelectedBlockRef.current;
+    prevSelectedBlockRef.current = selectedBlock;
+
+    if (selectedBlock && !prev) {
+      window.scrollTo(0, 0);
+    } else if (!selectedBlock && prev) {
+      const scrollY = mobileScrollYRef.current;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.scrollTo(0, scrollY);
+        });
+      });
+    }
+  }, [selectedBlock]);
+
   // Обработка навигации по истории браузера
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state && event.state.block) {
+        if (isMobileViewport() && selectedBlockRef.current === null) {
+          mobileScrollYRef.current = window.scrollY;
+        }
         setSelectedBlock(event.state.block);
       } else {
         setSelectedBlock(null);
